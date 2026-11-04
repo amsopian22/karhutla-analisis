@@ -160,7 +160,8 @@ SHAP values were computed across a stratified holdout sample of 2,500 observatio
 
 Analysis of official Ministry of Environment and Forestry (SiPongi KLHK) records across the 2018–2026 period underscores the profound non-linear control of macro-climatic anomalies over burned area extents in Central Kalimantan (Table 1 and Figure 2).
 
-*Table 1. Decadal burned area records from SiPongi KLHK (2018–2026) for Central Kalimantan.*
+**Table 1. Decadal burned area records from SiPongi KLHK (2018–2026) for Central Kalimantan.**
+
 | Year | Burned Area (Hectares) | Climate Regime | Major Events / Trajectory |
 | :--- | :---: | :---: | :--- |
 | **2018** | 47,432.57 | Neutral | Baseline dry season |
@@ -187,7 +188,8 @@ At the micro-crisis scale, satellite observations from NASA FIRMS during the 5�
 
 Spatial aggregation across Central Kalimantan's 14 administrative entities reveals an intense geographic concentration in the southern coastal and peat lowland basins (Table 2 and Figure 3).
 
-*Table 2. Geographic distribution of active fire hotspots across Central Kalimantan regencies (October 2026).*
+**Table 2. Geographic distribution of active fire hotspots across Central Kalimantan regencies (October 2026).**
+
 | Regency / City | Total Hotspots | Proportion (%) | Primary Landscape Characteristics |
 | :--- | :---: | :---: | :--- |
 | **Seruyan** | **9,356** | **21.29%** | Coastal peat dome complex; Lake Sembuluh basin |
@@ -236,7 +238,8 @@ In the ex-PLG landscape (Pulang Pisau, Kapuas, Kota Palangka Raya; $n = 16,645$)
 
 The performance comparison between Model A (incorporating geographic coordinates) and Model B (pure biophysical predictors) under both validation schemes is detailed in Table 3 and Figure 4.
 
-*Table 3. Comprehensive performance metrics comparing Model A and Model B under Random Stratified Test Split and Spatial Block Cross-Validation.*
+**Table 3. Comprehensive performance metrics comparing Model A and Model B under Random Stratified Test Split and Spatial Block Cross-Validation.**
+
 | Metric / Scheme | Model A (Spatial Memorization: with Lat/Lon) | Model B (Pure Biophysical: without Lat/Lon) | Methodological Finding |
 | :--- | :---: | :---: | :--- |
 | **Number of Features** | 15 predictors (incl. Lat, Lon, Regency) | 12 predictors (pure biophysical) | Model B eliminates coordinate leakage |
@@ -246,11 +249,11 @@ The performance comparison between Model A (incorporating geographic coordinates
 | **Recall (Severe Fires, FRP $\ge$ 12)** | 62.4% | **65.8%** | Model B captures higher proportion of severe fires |
 | **Spatial Block CV Mean ROC-AUC** | **0.5399** ($\pm$ 0.0531) | **0.4950** ($\pm$ 0.0490) | **Model A drops 0.2557 in AUC across spatial blocks** |
 | **Spatial Block CV Mean F1-Score** | **0.0583** | **0.1399** | **Model A F1 collapses; Model B retains 2.4x F1** |
-| **Fold 1** (Seruyan) | AUC: **0.5955** \| F1: 0.2913 | AUC: **0.5827** \| F1: 0.2914 | West-central coastal peat dome complex |
-| **Fold 2** (Pulpis, Bartim, Lamandau, Mura, Barut) | AUC: **0.5125** \| F1: 0.0000 | AUC: **0.5041** \| F1: 0.0657 | Model A F1 collapses to 0.0000; Model B detects fires |
-| **Fold 3** (Kapuas, Barsel, Sukamara, Gumas) | AUC: **0.5259** \| F1: 0.0000 | AUC: **0.4900** \| F1: 0.1056 | Core ex-PLG canal nexus & southern lowlands |
-| **Fold 4** (Katingan & Kota Palangka Raya) | AUC: **0.4622** \| F1: 0.0000 | AUC: **0.4452** \| F1: 0.0646 | Sebangau peat dome & urban-forest fringe |
-| **Fold 5** (Kotawaringin Barat & Kotim) | AUC: **0.6034** \| F1: 0.0000 | AUC: **0.4533** \| F1: 0.1722 | Western intensive oil palm plantation belt |
+| **Fold 1** (Seruyan) | AUC: **0.5955**, F1: 0.2913 | AUC: **0.5827**, F1: 0.2914 | West-central coastal peat dome complex |
+| **Fold 2** (Pulpis, Bartim, Lamandau, Mura, Barut) | AUC: **0.5125**, F1: 0.0000 | AUC: **0.5041**, F1: 0.0657 | Model A F1 collapses to 0.0000; Model B detects fires |
+| **Fold 3** (Kapuas, Barsel, Sukamara, Gumas) | AUC: **0.5259**, F1: 0.0000 | AUC: **0.4900**, F1: 0.1056 | Core ex-PLG canal nexus & southern lowlands |
+| **Fold 4** (Katingan & Kota Palangka Raya) | AUC: **0.4622**, F1: 0.0000 | AUC: **0.4452**, F1: 0.0646 | Sebangau peat dome & urban-forest fringe |
+| **Fold 5** (Kotawaringin Barat & Kotim) | AUC: **0.6034**, F1: 0.0000 | AUC: **0.4533**, F1: 0.1722 | Western intensive oil palm plantation belt |
 
 The empirical results expose the severe vulnerability of spatial machine learning models:
 1. **The Spatial Memorization Trap**: Under standard random cross-validation, Model A achieved an impressive ROC-AUC of 0.7956. However, when tested on unseen spatial blocks via Spatial Block Cross-Validation, its ROC-AUC plunged by **25.6 percentage points to 0.5399**, while its F1-score collapsed to **0.0583** (a 87.1% reduction). The model completely failed to predict severe fires in novel regencies because its internal decision trees were anchored to localized coordinate thresholds (e.g., $\text{latitude} < -2.45$ and $\text{longitude} > 114.15$).
@@ -264,7 +267,8 @@ The empirical results expose the severe vulnerability of spatial machine learnin
 
 Exact Shapley values derived from TreeSHAP (`shap.TreeExplainer`) on Model B provide an interpretable, physically consistent hierarchy of severe fire risk drivers (Table 4 and Figure 5).
 
-*Table 4. Feature importance ranking derived from genuine TreeSHAP analysis on Model B.*
+**Table 4. Feature importance ranking derived from genuine TreeSHAP analysis on Model B.**
+
 | Rank | Feature Name | Mean Absolute SHAP Value | Biophysical Mechanism / Directional Effect |
 | :---: | :--- | :---: | :--- |
 | **1** | **7-Day Cumulative Rainfall ($P_{\text{7d}}$)** | **0.0329** | Pronounced negative impact; $P_{\text{7d}} < 5.0\text{ mm}$ sharply elevates severe FRP log-odds. |
