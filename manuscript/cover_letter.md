@@ -4,14 +4,14 @@
 
 **To:**  
 The Editor-in-Chief  
-*Ecological Modelling* / *Remote Sensing of Environment* / *Land Use Policy*  
+*Applied Geography*  
 Elsevier Science
 
 **Subject:** Submission of Original Research Article titled *"Spatiotemporal Fire Intensity Modeling in Degraded Tropical Peatlands: Addressing Spatial Autocorrelation and Land Tenure Governance in Central Kalimantan"*
 
 Dear Editor-in-Chief and Editorial Board Members,
 
-I am pleased to submit our original research manuscript entitled **"Spatiotemporal Fire Intensity Modeling in Degraded Tropical Peatlands: Addressing Spatial Autocorrelation and Land Tenure Governance in Central Kalimantan"** for consideration for publication as a regular research article in your esteemed journal.
+I am pleased to submit our original research manuscript entitled **"Spatiotemporal Fire Intensity Modeling in Degraded Tropical Peatlands: Addressing Spatial Autocorrelation and Land Tenure Governance in Central Kalimantan"** for consideration for publication as a regular research article in *Applied Geography*.
 
 ### Context and Core Scientific Contribution
 Tropical peat swamp forests in Southeast Asia constitute globally vital carbon repositories that are experiencing chronic destabilization due to artificial drainage networks and recurrent wildfire crises. In Central Kalimantan, Indonesia, the legacy of the former Mega Rice Project (ex-PLG) excavated over 4,000 km of drainage canals across ombrotrophic peat domes. Despite extensive study, operational fire hazard prediction has remained constrained by two unresolved issues: (1) widespread methodological vulnerability to **spatial autocorrelation (Tobler’s First Law)** in machine learning models, causing optimistic validation bias and spatial memorization failure across unseen regions; and (2) polarized public debates surrounding **land tenure culpability** (corporate concessions vs. smallholders).
@@ -30,7 +30,7 @@ In this study, we present a calibrated spatiotemporal investigation integrating 
 - **Conflict of Interest:** The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
 - **Data Availability:** All processed master active fire data, administrative boundaries, primary canal vectors in UTM Zone 49S projection, and trained machine learning models are openly deposited and accessible in the research repository at https://github.com/amsopian22/karhutla-analisis. Raw active fire thermal anomalies are accessible from NASA FIRMS (https://firms.modaps.eosdis.nasa.gov/). Atmospheric reanalysis variables were obtained from the ECMWF ERA5-Land service.
 
-Given the strong emphasis on spatial machine learning methodology, ecological modeling, and land governance, we believe this manuscript will be of broad interest to the readership of your journal.
+Given the strong emphasis on applied spatial modeling, Tobler’s First Law of Geography, GIScience methodology, remote sensing, and land tenure governance in resolving urgent human-environmental resource crises, we believe this manuscript is ideally suited for the readership of *Applied Geography*.
 
 Thank you very much for your time, consideration, and handling of our submission.
 
