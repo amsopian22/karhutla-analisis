@@ -1,0 +1,9 @@
+{
+    "analisis": "Simulasi Dispersi Atmosferik Kabut Asap Lintas Batas 2026",
+    "metodologi": "Pemodelan Fisika Dispersi Gauss & Adveksi Vektor Angin Monsun Barat Daya",
+    "puncak_konsentrasi_kalteng_ug_m3": 383.7,
+    "puncak_singapura_ug_m3": 165.3,
+    "puncak_kuala_lumpur_ug_m3": 191.7,
+    "puncak_kuching_ug_m3": 197.3,
+    "status_data": "Simulasi Terkalibrasi Vektor Angin BMKG"
+}

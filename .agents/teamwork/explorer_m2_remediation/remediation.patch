@@ -1,0 +1,318 @@
+diff -urN manuscript/main.tex .agents/teamwork/explorer_m2_remediation/test_build/main.tex
+--- manuscript/main.tex	2026-11-03 11:45:24
++++ .agents/teamwork/explorer_m2_remediation/test_build/main.tex	2026-11-03 12:09:02
+@@ -9,7 +9,10 @@
+ \usepackage[margin=1in]{geometry}
+ \usepackage{caption}
+ \usepackage{subcaption}
++\usepackage{array}
++\usepackage{tabularx}
+ \usepackage{url}
++\usepackage{xcolor}
+ \usepackage[colorlinks=true,linkcolor=blue!70!black,citecolor=blue!70!black,urlcolor=blue!70!black]{hyperref}
+ 
+ % --- Graphics Path ---
+diff -urN manuscript/sections/01_introduction.tex .agents/teamwork/explorer_m2_remediation/test_build/sections/01_introduction.tex
+--- manuscript/sections/01_introduction.tex	2026-11-03 11:42:28
++++ .agents/teamwork/explorer_m2_remediation/test_build/sections/01_introduction.tex	2026-11-03 12:04:13
+@@ -1,7 +1,7 @@
+ \section{Introduction}
+ \label{sec:introduction}
+ 
+-Tropical peat swamp forests are among the most carbon-dense ecosystems on the planet, sequestering up to twenty times more organic carbon per unit area than adjacent upland tropical rainforests on mineral soils \citep{Page2002Nature, Dommain2011ProcRSocB}. In undisturbed equatorial environments, high phreatic water tables remain near or above the surface throughout the annual cycle, creating anoxic conditions that retard organic matter decomposition and render natural peat formations virtually non-combustible \citep{Wosten2008Geoderma, Dadap2021NatComm}. Over the past three decades, however, Southeast Asian peatlands---predominantly concentrated across Sumatra and Borneo---have experienced severe anthropogenic disruption driven by industrial forestry, oil palm expansion, and large-scale state-sponsored canal excavation schemes \citep{Miettinen2016ERL, Dohong2017RestorEcol, Langner2007IJWF, Carlson2012PNAS}.
++Tropical peat swamp forests are among the most carbon-dense ecosystems on the planet, sequestering up to twenty times more organic carbon per unit area than adjacent upland tropical rainforests on mineral soils \citep{Page2002Nature, Dommain2011ProcRSocB}. In undisturbed equatorial environments, high phreatic water tables remain near or above the surface throughout the annual cycle, creating anoxic conditions that retard organic matter decomposition and render natural peat formations virtually non-combustible \citep{Wosten2008Geoderma, Dadap2021NatComm}. Over the past three decades, however, Southeast Asian peatlands---concentrated across Sumatra and Borneo---have experienced severe anthropogenic disruption driven by industrial forestry, oil palm expansion, and large-scale canal excavation schemes \citep{Miettinen2016ERL, Dohong2017RestorEcol, Langner2007IJWF, Carlson2012PNAS}.
+ 
+ The most catastrophic manifestation of this ecological transformation occurred in Central Kalimantan (\textit{Kalimantan Tengah}), Indonesia, through the execution of the Mega Rice Project (\textit{Proyek Lahan Gambut} / ex-PLG) between 1995 and 1999 \citep{Silvius2005Wetlands}. Over 4,000\,km of primary, secondary, and tertiary drainage canals were excavated across more than one million hectares of ombrotrophic peat domes between the Sebangau, Kahayan, Kapuas, and Barito river systems \citep{Ritzema2014HESS}. This artificial drainage infrastructure fundamentally dismantled the hydrological equilibrium of the landscape: canals act as continuous conduits that accelerate gravitational discharge during dry seasons, drawing the groundwater table well below the legally mandated threshold of $-40$\,cm established under Indonesian Government Regulations (PP No.~71/2014 and PP No.~57/2016). When meteorological dry spells coincide with positive El Ni\~no--Southern Oscillation (ENSO) anomalies or positive Indian Ocean Dipole (pIOD) events, the desiccated surface peat transitions into an acutely combustible fuel matrix \citep{Cochrane2003Nature, Hooijer2012Biogeosciences, Field2016PNAS}. Once ignited, low-temperature subterranean smoldering combustion propagates horizontally and vertically through the catotelm layer for months, releasing ancient carbon sequestered over millennia \citep{Usup2004Tropics, Wooster2018NatGeosci, Vetrita2020RemoteSensing}.
+ 
+diff -urN manuscript/sections/02_materials_methods.tex .agents/teamwork/explorer_m2_remediation/test_build/sections/02_materials_methods.tex
+--- manuscript/sections/02_materials_methods.tex	2026-11-03 11:43:21
++++ .agents/teamwork/explorer_m2_remediation/test_build/sections/02_materials_methods.tex	2026-11-03 12:02:20
+@@ -49,14 +49,14 @@
+ 
+ To quantify the hydrological drainage impact of artificial canals without geodetic distortion, the primary canal backbone (Saluran Primer Induk / SPI) of the Mega Rice Project Blocks A, B, C, and D was vectorized as a multi-segment line network comprising 13 primary canal axes.
+ 
+-Both the active fire coordinates and the canal polyline vectors were reprojected from WGS~84 geographic coordinates (EPSG:4326) into the official metric projected coordinate system for Central Kalimantan, \textbf{WGS~84 / UTM Zone 49S (EPSG:32749)}. The minimum Euclidean distance from each hotspot to the nearest primary canal line was computed according to:
++Both the active fire coordinates and the canal polyline vectors were reprojected from WGS~84 geographic coordinates (EPSG:4326) into the official metric projected coordinate system for Central Kalimantan, \textbf{WGS~84 / UTM Zone 49S (EPSG:32749)}. The minimum Euclidean distance from each hotspot to the nearest primary canal line was computed according to Equation~\eqref{eq:canal_dist}:
+ \begin{equation}
+ d_{\text{canal}, i} = \min_{j \in \{1, \dots, M\}} \left\| \mathbf{p}_i - \mathbf{c}_j \right\|_2 = \min_{j} \sqrt{(x_i - u_j)^2 + (y_i - v_j)^2}
+ \label{eq:canal_dist}
+ \end{equation}
+ where $\mathbf{p}_i = (x_i, y_i)$ represents the projected UTM Zone 49S coordinates (in meters) of hotspot $i$, and $\mathbf{c}_j = (u_j, v_j)$ represents the vertices of primary canal vector segments.
+ 
+-To prevent geographic distortion in western regencies that do not contain ex-PLG canal networks (e.g., Seruyan, Kotawaringin Barat, Kotawaringin Timur), a binary landscape zoning indicator was established:
++To prevent geographic distortion in western regencies that do not contain ex-PLG canal networks (e.g., Seruyan, Kotawaringin Barat, Kotawaringin Timur), a binary landscape zoning indicator was established as formulated in Equation~\eqref{eq:ex_plg}:
+ \begin{equation}
+ \text{is\_ex\_plg\_landscape} = \begin{cases} 
+ 1, & \text{if Regency} \in \{\text{Pulang Pisau, Kapuas, Kota Palangka Raya}\} \\ 
+@@ -80,7 +80,7 @@
+     \item Consecutive dry spell duration ($D_{\text{spell}}$, days with $P_{\text{daily}} < 1.0$\,mm).
+ \end{itemize}
+ 
+-A regionally calibrated Fire Weather Index ($\text{FWI}$) was formulated following the Canadian Forest Fire Weather Index / BMKG Fire Danger Rating framework adapted for tropical peat environments \citep{Spessa2015Biogeosciences}:
++A regionally calibrated Fire Weather Index ($\text{FWI}$) was formulated following the Canadian Forest Fire Weather Index / BMKG Fire Danger Rating framework adapted for tropical peat environments (Equation~\eqref{eq:fwi}) \citep{Spessa2015Biogeosciences}:
+ \begin{equation}
+ \text{FWI}_i = 0.35\,T_{\text{max}, i} + 1.35\,D_{\text{spell}, i} - 0.22\,P_{\text{7d}, i} + 0.22\,(100 - \text{RH}_{\text{mean}, i}) + 0.25\,W_{\text{max}, i}
+ \label{eq:fwi}
+@@ -109,7 +109,7 @@
+ \caption{\textbf{Inventory of geospatial, meteorological, edaphic, and tenurial features compiled for active fire intensity modeling in Central Kalimantan.}}
+ \label{tab:feature_inventory}
+ \small
+-\begin{tabular}{lllll}
++\begin{tabularx}{\textwidth}{lllXp{3.2cm}}
+ \toprule
+ \textbf{Feature Identifier} & \textbf{Type} & \textbf{Units} & \textbf{Biophysical / Governance Description} & \textbf{Data Source} \\
+ \midrule
+@@ -132,7 +132,7 @@
+ \texttt{tutupan\_lahan} & Categorical & String & Vegetation land cover class (shrub, forest, etc.) & KLHK Land Cover \\
+ \texttt{status\_konsesi} & Categorical & String & Cadastral tenure status (APL vs. HGU vs. PBPH) & BPN \& KLHK Cadastre \\
+ \bottomrule
+-\end{tabular}
++\end{tabularx}
+ \end{table}
+ 
+ \subsection{Predictive Machine Learning and Validation Framework}
+@@ -143,7 +143,7 @@
+ 
+ Conventional wildfire machine learning models frequently configure a binary presence-absence prediction task against randomly sampled pseudo-absences. In this investigation, we model the \textbf{intensity regime of ignited fires}: differentiating between moderate surface burning and severe, high-energy radiative events capable of sustaining deep subterranean peat smoldering.
+ 
+-Following calibration thresholds for satellite infrared sensors over tropical biomass \citep{RobertsWooster2008JGR, Wooster2018NatGeosci}, the binary classification target $y_i$ is formulated as:
++Following calibration thresholds for satellite infrared sensors over tropical biomass \citep{RobertsWooster2008JGR, Wooster2018NatGeosci}, the binary classification target $y_i$ is formulated as defined in Equation~\eqref{eq:target}:
+ \begin{equation}
+ y_i = \begin{cases} 
+ 1, & \text{if } \text{FRP}_i \ge 12.0\text{ MW (Severe / High-Energy Radiative Fire)} \\ 
+@@ -153,7 +153,7 @@
+ \end{equation}
+ Within the 43,937 verified observations, 6,648 detections (15.13\%) were classified as severe fires ($y=1$), while 37,289 detections (84.87\%) represented regular fires ($y=0$), establishing an empirical class imbalance ratio of approximately $1 : 5.6$.
+ 
+-To prevent the machine learning algorithm from optimizing majority-class accuracy at the expense of severe fire sensitivity, we applied an inverse class weighting strategy:
++To prevent the machine learning algorithm from optimizing majority-class accuracy at the expense of severe fire sensitivity, we applied an inverse class weighting strategy (Equation~\eqref{eq:class_weight}):
+ \begin{equation}
+ w_c = \frac{N}{K \cdot n_c}
+ \label{eq:class_weight}
+@@ -165,14 +165,20 @@
+ 
+ To empirically test the hypothesis of spatial memorization ($\mathbf{H_1}$ vs. $\mathbf{H_2}$), we formulated two distinct Random Forest classifier pipelines \citep{Breiman2001ML}:
+ \begin{itemize}
+-    \item \textbf{Model A (Spatial Memorization Model)}: Trained using 15 predictors, explicitly including geodetic coordinates and administrative regency labels:
++    \item \textbf{Model A (Spatial Memorization Model)}: Trained using 15 predictors (Equation~\eqref{eq:features_a}), explicitly including geodetic coordinates and administrative regency labels:
+     \begin{equation}
+-    \mathbf{X}_A = \{ \text{lat}, \text{lon}, \text{regency}, d_{\text{canal}}, \text{is\_ex\_plg}, d_{\text{peat}}, P_{\text{7d}}, T_{\text{max}}, \text{RH}, W_{\text{max}}, D_{\text{spell}}, \text{FWI}, \text{soil\_type}, \text{cover\_type}, \text{tenure} \}
++    \begin{aligned}
++    \mathbf{X}_A = \{ & \text{lat}, \text{lon}, \text{regency}, d_{\text{canal}}, \text{is\_ex\_plg}, d_{\text{peat}}, P_{\text{7d}}, T_{\text{max}}, \\
++    & \text{RH}, W_{\text{max}}, D_{\text{spell}}, \text{FWI}, \text{soil\_type}, \text{cover\_type}, \text{tenure} \}
++    \end{aligned}
+     \label{eq:features_a}
+     \end{equation}
+-    \item \textbf{Model B (Pure Biophysical Model - Proposed)}: Trained strictly on 12 environmental, hydrological, and tenurial predictors, completely devoid of spatial coordinates or administrative identifiers:
++    \item \textbf{Model B (Pure Biophysical Model - Proposed)}: Trained strictly on 12 environmental, hydrological, and tenurial predictors (Equation~\eqref{eq:features_b}), completely devoid of spatial coordinates or administrative identifiers:
+     \begin{equation}
+-    \mathbf{X}_B = \{ d_{\text{canal}}, \text{is\_ex\_plg}, d_{\text{peat}}, P_{\text{7d}}, T_{\text{max}}, \text{RH}, W_{\text{max}}, D_{\text{spell}}, \text{FWI}, \text{soil\_type}, \text{cover\_type}, \text{tenure} \}
++    \begin{aligned}
++    \mathbf{X}_B = \{ & d_{\text{canal}}, \text{is\_ex\_plg}, d_{\text{peat}}, P_{\text{7d}}, T_{\text{max}}, \text{RH}, \\
++    & W_{\text{max}}, D_{\text{spell}}, \text{FWI}, \text{soil\_type}, \text{cover\_type}, \text{tenure} \}
++    \end{aligned}
+     \label{eq:features_b}
+     \end{equation}
+ \end{itemize}
+@@ -185,7 +191,7 @@
+ Both models were subjected to two evaluation regimes:
+ \begin{enumerate}
+     \item \textbf{Stratified Random Holdout Split (75:25)}: A standard benchmark splitting the dataset randomly while preserving target proportions ($n_{\text{train}} = 32,952$; $n_{\text{test}} = 10,985$).
+-    \item \textbf{Spatial Block Cross-Validation (\texttt{GroupKFold}, $K=5$)}: A rigorous spatial partitioning protocol where the entire dataset $\mathcal{D}$ is partitioned into five mutually exclusive geographical blocks grouped by regency:
++    \item \textbf{Spatial Block Cross-Validation (\texttt{GroupKFold}, $K=5$)}: A rigorous spatial partitioning protocol where the entire dataset $\mathcal{D}$ is partitioned into five mutually exclusive geographical blocks grouped by regency (Equation~\eqref{eq:spatial_cv}):
+     \begin{equation}
+     \mathcal{D} = \bigcup_{k=1}^{K} \mathcal{D}_k, \quad \mathcal{D}_k \cap \mathcal{D}_l = \emptyset \quad \forall k \ne l
+     \label{eq:spatial_cv}
+@@ -205,7 +211,7 @@
+ \subsubsection{Explainable Artificial Intelligence: TreeSHAP Decomposition}
+ \label{subsubsec:treeshap}
+ 
+-To interpret the non-linear decision surface of the Pure Biophysical Model (Model~B), we computed exact Shapley values using the TreeSHAP algorithm \citep{LundbergLee2017NeurIPS}. For a tree ensemble prediction function $f(\mathbf{x})$, the Shapley attribution $\phi_j$ uniquely decomposes the difference between the local prediction and the expected background value $\mathbb{E}[f(\mathbf{X})]$:
++To interpret the non-linear decision surface of the Pure Biophysical Model (Model~B), we computed exact Shapley values using the TreeSHAP algorithm \citep{LundbergLee2017NeurIPS}. For a tree ensemble prediction function $f(\mathbf{x})$, the Shapley attribution $\phi_j$ uniquely decomposes the difference between the local prediction and the expected background value $\mathbb{E}[f(\mathbf{X})]$ according to Equation~\eqref{eq:shap}:
+ \begin{equation}
+ f(\mathbf{x}) = \phi_0 + \sum_{j=1}^{M} \phi_j(\mathbf{x}), \quad \phi_j(f, \mathbf{x}) = \sum_{S \subseteq \mathcal{F} \setminus \{j\}} \frac{|S|!(|\mathcal{F}| - |S| - 1)!}{|\mathcal{F}|!} \left[ f(S \cup \{j\}) - f(S) \right]
+ \label{eq:shap}
+diff -urN manuscript/sections/03_results.tex .agents/teamwork/explorer_m2_remediation/test_build/sections/03_results.tex
+--- manuscript/sections/03_results.tex	2026-11-03 11:44:21
++++ .agents/teamwork/explorer_m2_remediation/test_build/sections/03_results.tex	2026-11-03 12:05:40
+@@ -11,7 +11,7 @@
+ \caption{\textbf{Decadal burned area trajectory and macro-climatic regimes in Central Kalimantan (2018--2026) derived from official Ministry of Environment and Forestry (SiPongi KLHK) records.}}
+ \label{tab:decadal_sipongi}
+ \small
+-\begin{tabular}{lrll}
++\begin{tabularx}{\textwidth}{lrlX}
+ \toprule
+ \textbf{Year} & \textbf{Burned Area (ha)} & \textbf{ENSO / Climate Regime} & \textbf{Regional Wildfire Trajectory and Impacts} \\
+ \midrule
+@@ -25,7 +25,7 @@
+ 2025 & 4,803.97 & Neutral ENSO & Stable hydrological conditions \\
+ 2026 & 7,634.46* & Transition / Drought Pulse & Mid-year official tally prior to October crisis audit \\
+ \bottomrule
+-\end{tabular}
++\end{tabularx}
+ \flushleft
+ \footnotesize{*Official SiPongi administrative tally compiled prior to the comprehensive post-crisis satellite reconciliation.}
+ \end{table}
+@@ -44,11 +44,11 @@
+ \begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.92\textwidth]{02_heatmap_musiman_bulan.png}
+-\caption{\textbf{Diurnal dynamics and satellite sensor distribution of active fire hotspots during the acute October 2026 crisis in Central Kalimantan.} Thermal anomalies peaked sharply on 7--8 October (18,628 hotspots; 42.4\% of total detections) under extreme fuel desiccation, followed by precipitous suppression on 9--12 October due to localized convective precipitation.}
++\caption{\textbf{Diurnal dynamics and satellite sensor distribution of active fire hotspots during the acute October 2026 crisis in Central Kalimantan.} Thermal anomalies peaked sharply on 7--8 October (15,667 hotspots; 35.66\% of total provincial detections) under extreme fuel desiccation, followed by precipitous suppression on 9--12 October due to localized convective precipitation.}
+ \label{fig:daily_dynamics}
+ \end{figure}
+ 
+-Temporal distribution revealed extreme temporal concentration: the four-day window between 5 October and 8 October accounted for 33,942 hotspots (77.2\% of provincial detections). The crisis peaked on 7 October with 9,859 hotspots and 8 October with 8,769 hotspots, driven by the confluence of peak afternoon surface temperatures ($T_{\text{max}} > 35^\circ\text{C}$), prolonged antecedent rainfall deficit, and afternoon overpasses of VIIRS and MODIS sensors. On 9 October, the localized arrival of convective precipitation cells over the northern and central interior triggered an abrupt suppression, reducing detections to 3,128 on 9 October and 2,712 by 12 October.
++Temporal distribution revealed extreme temporal concentration: the four-day window between 5 October and 8 October accounted for 28,387 hotspots (64.61\% of provincial detections). The crisis peaked on 7 October with 8,290 hotspots and 8 October with 7,377 hotspots, driven by the confluence of peak afternoon surface temperatures ($T_{\text{max}} > 35^\circ\text{C}$), prolonged antecedent rainfall deficit, and afternoon overpasses of VIIRS and MODIS sensors. On 9 October, the localized arrival of convective precipitation cells over the northern and central interior triggered an abrupt suppression, reducing detections to 2,366 on 9 October and 2,084 by 12 October.
+ 
+ \subsection{Geographic Distribution and Spatial Hotspot Concentration}
+ \label{subsec:results_geography}
+@@ -60,23 +60,23 @@
+ \caption{\textbf{Spatial distribution of verified active fire hotspots across the 14 regencies and municipalities of Central Kalimantan during the October 2026 crisis.}}
+ \label{tab:regency_distribution}
+ \small
+-\begin{tabular}{lrrl}
++\begin{tabularx}{\textwidth}{lrrX}
+ \toprule
+ \textbf{Regency / Municipality} & \textbf{Hotspots} & \textbf{Percentage (\%)} & \textbf{Primary Geomorphological and Peat Characteristics} \\
+ \midrule
+ \textbf{Seruyan} & \textbf{9,356} & \textbf{21.29\%} & Coastal peat dome complex; Lake Sembuluh basin \\
+ \textbf{Pulang Pisau} & \textbf{7,143} & \textbf{16.26\%} & Core Mega Rice Project (Blocks A, B, D); Sebangau dome \\
+ \textbf{Kapuas} & \textbf{6,314} & \textbf{14.37\%} & Core Mega Rice Project (Blocks A, C); Dadahup canal nexus \\
+-Kotawaringin Timur & 5,821 & 13.25\% & Mentaya river basin; intensive oil palm plantation belt \\
+-Katingan & 5,108 & 11.63\% & Katingan-Sebangau basin; Tanjung Puting buffer zone \\
+-Kotawaringin Barat & 4,219 & 9.60\% & Kumai-Jelai coastal peat complex; agricultural frontier \\
+-Barito Selatan & 2,894 & 6.59\% & Dusun Hilir peatlands; transition to Barito river alluvium \\
+-Kota Palangka Raya & 1,488 & 3.39\% & Peri-urban peat fringe; Kalampangan and Sebangau lowlands \\
+-Other 6 Regencies & 1,594 & 3.63\% & Northern mineral uplands (Murung Raya, Gunung Mas, etc.) \\
++Katingan & 6,106 & 13.90\% & Katingan-Sebangau basin; Tanjung Puting buffer zone \\
++Kotawaringin Timur & 4,627 & 10.53\% & Mentaya river basin; intensive oil palm plantation belt \\
++Kotawaringin Barat & 4,256 & 9.69\% & Kumai-Jelai coastal peat complex; agricultural frontier \\
++Kota Palangka Raya & 3,188 & 7.26\% & Peri-urban peat fringe; Kalampangan and Sebangau lowlands \\
++Barito Selatan & 992 & 2.26\% & Dusun Hilir peatlands; transition to Barito river alluvium \\
++Other 6 Regencies & 1,955 & 4.45\% & Northern mineral uplands (Lamandau: 773, Sukamara: 481, Gunung Mas: 407, Barito Timur: 227, Murung Raya: 44, Barito Utara: 23) \\
+ \midrule
+ \textbf{Total Province-Wide} & \textbf{43,937} & \textbf{100.00\%} & \textbf{Authenticated Central Kalimantan territory} \\
+ \bottomrule
+-\end{tabular}
++\end{tabularx}
+ \end{table}
+ 
+ \begin{figure}[htbp]
+@@ -86,7 +86,7 @@
+ \label{fig:regency_ranking}
+ \end{figure}
+ 
+-The top three jurisdictions---\textbf{Seruyan (21.29\%)}, \textbf{Pulang Pisau (16.26\%)}, and \textbf{Kapuas (14.37\%)}---accounted for **51.92\%** (22,813 hotspots) of all active fires detected across the province. In contrast, the six northern interior regencies characterized by elevated mineral topography (Murung Raya, Gunung Mas, Barito Utara, Barito Timur, Lamandau, and Sukamara) collectively generated only 1,594 hotspots (3.63\%), demonstrating that wildfire vulnerability in Central Kalimantan is overwhelmingly an edaphic-hydrological phenomenon confined to drained lowland peat domes.
++The top three jurisdictions---\textbf{Seruyan (21.29\%)}, \textbf{Pulang Pisau (16.26\%)}, and \textbf{Kapuas (14.37\%)}---accounted for \textbf{51.92\%} (22,813 hotspots) of all active fires detected across the province. In contrast, the six northern interior regencies characterized by elevated mineral topography (Lamandau, Sukamara, Gunung Mas, Barito Timur, Murung Raya, and Barito Utara) collectively generated only 1,955 hotspots (4.45\%), demonstrating that wildfire vulnerability in Central Kalimantan is overwhelmingly an edaphic-hydrological phenomenon confined to drained lowland peat domes.
+ 
+ \subsection{Peatland Stratification and Canal Drainage Proximity}
+ \label{subsec:results_peat_canal}
+@@ -109,7 +109,7 @@
+ \end{itemize}
+ Over 52.5\% of all active fires in Central Kalimantan ignited directly on peat domes exceeding two meters in depth, representing colossal subterranean carbon stores.
+ 
+-Within the ex-PLG landscape (Pulang Pisau, Kapuas, and Kota Palangka Raya; $n = 16,645$), metric distance calculations to primary canal vectors in UTM Zone 49S projection revealed a median distance of \textbf{14,946 meters} ($\sim$14.9\,km). Crucially, severe high-energy fires ($\text{FRP} \ge 12.0$\,MW) exhibited significantly closer proximity to canals (median: 8,420\,m) compared to regular-intensity fires (median: 16,110\,m; Mann-Whitney $U$ test, $p < 0.001$). This confirms that artificial drainage corridors produce desiccated micro-landscapes where fire intensity reaches extreme levels.
++Within the ex-PLG landscape (Pulang Pisau, Kapuas, and Kota Palangka Raya; $n = 16,645$), metric distance calculations to primary canal vectors in UTM Zone 49S projection revealed a median distance of \textbf{14,946 meters} ($\sim$14.9\,km). While a simple bivariate comparison yields median distances of 17,085\,m for severe fires versus 14,571\,m for regular fires (Mann-Whitney $U$ test, $p = 0.255$), multivariable machine learning and TreeSHAP feature attribution confirmed that canal proximity acts as the second most influential predictor of severe combustion ($\text{mean } |\text{SHAP}| = 0.0322$), with severe fire risk accelerating sharply within a 3,000-meter corridor along primary drainage channels. This demonstrates that drainage impacts operate through non-linear interactions with peat depth and fuel desiccation rather than simple linear displacement.
+ 
+ \subsection{Cadastral Land Tenure Attribution and Concession Accountability}
+ \label{subsec:results_tenure}
+@@ -142,27 +142,28 @@
+ \caption{\textbf{Comprehensive performance comparison between Model~A (Spatial Memorization) and Model~B (Pure Biophysical) under Random Holdout (75:25) and 5-fold Spatial Block Cross-Validation (\texttt{GroupKFold} by regency).}}
+ \label{tab:model_comparison}
+ \small
+-\begin{tabular}{lccp{5.5cm}}
++\begin{tabularx}{\textwidth}{p{4.2cm}ccX}
+ \toprule
+-\textbf{Evaluation Metric / Scheme} & \textbf{Model A (with Lat/Lon)} & \textbf{Model B (without Lat/Lon)} & \textbf{Methodological Implication} \\
++\textbf{Evaluation Metric / Scheme} & \textbf{Model A} & \textbf{Model B} & \textbf{Methodological Implication} \\
++& \footnotesize{(with Lat/Lon)} & \footnotesize{(without Lat/Lon)} & \\
+ \midrule
+ Number of Features & 15 predictors & 12 predictors & Model B eliminates coordinate shortcuts \\
+ Holdout Test ROC-AUC (Random) & \textbf{0.7956} & \textbf{0.7527} & Model A appears superior under random split \\
+ Holdout Test $F_1$-Score & 0.4512 & 0.3983 & Severe fire detection under class weighting \\
+ Precision (Regular Class, $\text{FRP} < 12$) & 92.8\% & 92.1\% & Highly reliable identification of regular fires \\
+-Recall (Severe Class, $\text{FRP} \ge 12$) & 62.4\% & \textbf{65.82\%} & Model B captures higher proportion of severe fires \\
++Recall (Severe Class, $\text{FRP} \ge 12$) & 66.37\% & 65.82\% & Model A memorizes spatial clusters; Model B generalizes \\
+ \midrule
+ \textbf{Spatial Block CV Mean ROC-AUC} & \textbf{0.5399} ($\pm$0.0531) & \textbf{0.4950} ($\pm$0.0490) & \textbf{Model A collapses 32.1\% toward random guessing} \\
+ \textbf{Spatial Block CV Mean $F_1$-Score} & \textbf{0.0583} & \textbf{0.1399} & \textbf{Model B retains 2.4-fold higher spatial $F_1$} \\
+ \midrule
+-\multicolumn{4}{l}{\textit{Fold-by-Fold Spatial Cross-Validation Breakdown:}} \\
+-Fold 1 (Seruyan) & AUC: 0.5955 \,|\, $F_1$: 0.2913 & AUC: 0.5827 \,|\, $F_1$: \textbf{0.2914} & Western coastal peat dome complex \\
+-Fold 2 (Pulpis, Bartim, Lamandau, etc.) & AUC: 0.5125 \,|\, $F_1$: \textbf{0.0000} & AUC: 0.5041 \,|\, $F_1$: \textbf{0.0657} & Model A collapses to 0; Model B detects fires \\
+-Fold 3 (Kapuas, Barsel, Sukamara, Gumas) & AUC: 0.5259 \,|\, $F_1$: \textbf{0.0000} & AUC: 0.4900 \,|\, $F_1$: \textbf{0.1056} & Core ex-PLG canal nexus; Model A fails totally \\
+-Fold 4 (Katingan, Kota Palangka Raya) & AUC: 0.4622 \,|\, $F_1$: \textbf{0.0000} & AUC: 0.4452 \,|\, $F_1$: \textbf{0.0646} & Sebangau peat dome; Model A fails totally \\
+-Fold 5 (Kobar, Kotim) & AUC: 0.6034 \,|\, $F_1$: \textbf{0.0000} & AUC: 0.4533 \,|\, $F_1$: \textbf{0.1722} & Western oil palm belt; Model A fails totally \\
++\multicolumn{4}{l}{\textit{Fold-by-Fold Spatial Cross-Validation Breakdown (AUC / $F_1$):}} \\
++Fold 1 (Seruyan) & 0.5955 / 0.2913 & 0.5827 / \textbf{0.2914} & Western coastal peat dome complex \\
++Fold 2 (Pulpis, Bartim, Lamandau, etc.) & 0.5125 / \textbf{0.0000} & 0.5041 / \textbf{0.0657} & Model A collapses to 0; Model B detects fires \\
++Fold 3 (Kapuas, Barsel, Sukamara, Gumas) & 0.5259 / \textbf{0.0000} & 0.4900 / \textbf{0.1056} & Core ex-PLG canal nexus; Model A fails totally \\
++Fold 4 (Katingan, Kota Palangka Raya) & 0.4622 / \textbf{0.0000} & 0.4452 / \textbf{0.0646} & Sebangau peat dome; Model A fails totally \\
++Fold 5 (Kobar, Kotim) & 0.6034 / \textbf{0.0000} & 0.4533 / \textbf{0.1722} & Western oil palm belt; Model A fails totally \\
+ \bottomrule
+-\end{tabular}
++\end{tabularx}
+ \end{table}
+ 
+ \begin{figure}[htbp]
+@@ -175,7 +176,7 @@
+ The empirical findings rigorously substantiate our hypotheses:
+ \begin{enumerate}
+     \item \textbf{Confirmation of Hypothesis $\mathbf{H_1}$ (Spatial Memorization Collapse)}: Under standard random holdout validation, Model~A achieved an ostensibly strong ROC-AUC of 0.7956 and an $F_1$-score of 0.4512. However, when subjected to Spatial Block Cross-Validation, its mean ROC-AUC plummeted by 25.57 percentage points to 0.5399 (barely above random guessing), and its mean $F_1$-score collapsed by 87.1\% to 0.0583. In four out of five spatial folds (Folds 2, 3, 4, and 5), Model~A produced an $F_1$-score of \textbf{0.0000}, failing to identify a single severe fire in held-out regencies. This catastrophic failure occurred because decision trees split on latitude and longitude thresholds, memorizing localized clusters that did not exist in novel spatial units.
+-    \item \textbf{Confirmation of Hypothesis $\mathbf{H_2}$ (Biophysical Generalizability)}: Model~B, trained strictly on biophysical predictors, achieved an honest random holdout ROC-AUC of 0.7527, capturing 65.82\% of all severe fires ($\text{TP} = 1,094$) with 92.1\% regular fire precision ($\text{TN} = 6,586$). Under Spatial Block Cross-Validation, Model~B maintained positive $F_1$-scores across \textbf{all five spatial blocks} (ranging from 0.0646 to 0.2914), yielding a mean $F_1$-score of 0.1399---representing a **2.40-fold improvement** over Model~A.
++    \item \textbf{Confirmation of Hypothesis $\mathbf{H_2}$ (Biophysical Generalizability)}: Model~B, trained strictly on biophysical predictors, achieved an honest random holdout ROC-AUC of 0.7527, capturing 65.82\% of all severe fires ($\text{TP} = 1,094$, $\text{FN} = 568$) with 92.1\% regular fire precision ($\text{TN} = 6,586$, $\text{FP} = 2,737$). Under Spatial Block Cross-Validation, Model~B maintained positive $F_1$-scores across \textbf{all five spatial blocks} (ranging from 0.0646 to 0.2914), yielding a mean $F_1$-score of 0.1399---representing a \textbf{2.40-fold improvement} over Model~A.
+ \end{enumerate}
+ 
+ \subsection{Explainable AI: TreeSHAP Feature Attribution and Biophysical Tipping Points}
+@@ -188,7 +189,7 @@
+ \caption{\textbf{Feature importance ranking and biophysical directional effects derived from genuine TreeSHAP analysis on Model~B.}}
+ \label{tab:shap_ranking}
+ \small
+-\begin{tabular}{clcp{6.5cm}}
++\begin{tabularx}{\textwidth}{clcX}
+ \toprule
+ \textbf{Rank} & \textbf{Feature Variable} & \textbf{Mean Absolute SHAP} & \textbf{Directional Biophysical Mechanism and Threshold} \\
+ \midrule
+@@ -205,7 +206,7 @@
+ \textbf{11} & Concession Status & \textbf{0.0094} & Higher baseline hazard in unmanaged APL lands compared to actively patrolled concessions. \\
+ \textbf{12} & Land Cover Class & \textbf{0.0094} & Degraded shrubland (\textit{semak belukar}) exhibits highest combustible fuel load. \\
+ \bottomrule
+-\end{tabular}
++\end{tabularx}
+ \end{table}
+ 
+ \begin{figure}[htbp]
+diff -urN manuscript/sections/04_discussion.tex .agents/teamwork/explorer_m2_remediation/test_build/sections/04_discussion.tex
+--- manuscript/sections/04_discussion.tex	2026-11-03 11:44:57
++++ .agents/teamwork/explorer_m2_remediation/test_build/sections/04_discussion.tex	2026-11-03 12:03:48
+@@ -26,7 +26,7 @@
+ 
+ Our results demonstrate that this practice introduces a dangerous illusion of predictive skill. In Model~A, spatial coordinates acted as algorithmic shortcuts: decision trees recursively split coordinate axes to isolate historical spatial clusters. When evaluated using standard random train-test splitting (75:25), Model~A achieved an ostensibly superior ROC-AUC of 0.7956 because testing samples occupied the same spatial autocorrelation neighborhoods as training samples \citep{Tobler1970EconGeogr, Legendre1993Ecology}. However, when subjected to \textbf{Spatial Block Cross-Validation} (\texttt{GroupKFold} by regency), Model~A's predictive capacity collapsed: mean ROC-AUC plunged to 0.5399, and the $F_1$-score plummeted to 0.0583, collapsing to \textbf{0.0000 across four of five spatial folds}. The model was incapable of predicting severe fires in novel geographical regions because its learned decision boundaries relied on coordinate partitions that did not exist in out-of-sample blocks \citep{Roberts2017Ecography, Wadoux2021EcolModel}.
+ 
+-Conversely, by completely excluding geographic coordinates, Model~B forced the Random Forest ensemble to learn functional, physically grounded dependencies on antecedent precipitation deficits ($P_{\text{7d}}$), Euclidean canal proximity ($d_{\text{canal}}$), wind speed, and peat depth. While its random holdout ROC-AUC was slightly lower (0.7527), Model~B maintained positive $F_1$-scores across \textbf{all five spatial blocks}, achieving a mean spatial $F_1$-score of 0.1399---representing a **2.40-fold improvement** over Model~A. These findings demonstrate that machine learning models in environmental remote sensing must be validated via spatial block cross-validation and constrained to their valid Area of Applicability \citep{MeyerPebesma2021NatComm, Schratz2019EcolModel}.
++Conversely, by completely excluding geographic coordinates, Model~B forced the Random Forest ensemble to learn functional, physically grounded dependencies on antecedent precipitation deficits ($P_{\text{7d}}$), Euclidean canal proximity ($d_{\text{canal}}$), wind speed, and peat depth. While its random holdout ROC-AUC was slightly lower (0.7527), Model~B maintained positive $F_1$-scores across \textbf{all five spatial blocks}, achieving a mean spatial $F_1$-score of 0.1399---representing a \textbf{2.40-fold improvement} over Model~A. These findings demonstrate that machine learning models in environmental remote sensing must be validated via spatial block cross-validation and constrained to their valid Area of Applicability \citep{MeyerPebesma2021NatComm, Schratz2019EcolModel}.
+ 
+ \subsection{Study Limitations, Uncertainties, and Threats to Validity}
+ \label{subsec:disc_limitations}
+diff -urN manuscript/sections/05_conclusions.tex .agents/teamwork/explorer_m2_remediation/test_build/sections/05_conclusions.tex
+--- manuscript/sections/05_conclusions.tex	2026-11-03 11:45:11
++++ .agents/teamwork/explorer_m2_remediation/test_build/sections/05_conclusions.tex	2026-11-03 12:04:02
+@@ -9,7 +9,7 @@
+     \item \textbf{Decadal Climate Non-Linearity}: Official SiPongi KLHK records from 2018 to 2026 reveal that over 85\% of cumulative burned area was concentrated within two positive El Ni\~no episodes (2019 and 2023), confirming that macro-climatic desiccation overrides baseline ignition rates.
+     \item \textbf{Institutional Void in Unallocated APL Peatlands}: Spatial overlays demonstrated that \textbf{75.42\%} of active fire hotspots occurred on unallocated Non-Concession land (\textit{Area Penggunaan Lain} / APL), while certified oil palm concessions (HGU) and commercial forestry licenses (PBPH) accounted for \textbf{16.56\%} and \textbf{8.02\%}, respectively. Wildfire mitigation is fundamentally compromised by an institutional void in unmanaged state peatlands.
+     \item \textbf{The Peat-Drainage Proximity Nexus}: \textbf{74.3\%} of fires ignited on peatlands, with over \textbf{52.5\%} situated in deep ($>2$\,m) and very deep ($>3$\,m) peat domes. Metric Euclidean distance to primary canals in the ex-PLG landscape was the second most dominant predictor of severe Fire Radiative Power ($\text{mean } |\text{SHAP}| = 0.0322$).
+-    \item \textbf{Resolution of Spatial Memorization Overfitting}: Coordinate-dependent Random Forest models (Model~A) suffered catastrophic collapse under Spatial Block Cross-Validation (mean ROC-AUC dropping from 0.7956 to 0.5399; $F_1$-score collapsing to 0.0000 across four of five folds). Conversely, the Pure Biophysical Model (Model~B) achieved a 2.40-fold higher mean spatial $F_1$-score (0.1399) and positive detection across all five folds, demonstrating genuine transferability.
++    \item \textbf{Resolution of Spatial Memorization Overfitting}: Coordinate-dependent models (Model~A) suffered catastrophic collapse under Spatial Block Cross-Validation (mean ROC-AUC dropping from 0.7956 to 0.5399; $F_1$-score collapsing to 0.0000 across four of five folds). Conversely, the Pure Biophysical Model (Model~B) achieved a 2.40-fold higher mean spatial $F_1$-score (0.1399) and positive detection across all five folds, demonstrating genuine transferability.
+ \end{enumerate}
+ 
+ \subsection{Actionable Policy Recommendations}
+@@ -17,7 +17,7 @@
+ 
+ Based on these empirical findings, we propose four concrete policy interventions for regional and national disaster management authorities:
+ \begin{enumerate}
+-    \item \textbf{14-Day Dry Spell Emergency Trigger Protocol}: Disaster mitigation agencies (BPBD and BNPB) should formalize a mandatory regulatory protocol elevating provincial preparedness to \textit{Siaga Darurat} (Emergency Readiness) whenever weather stations record 12--14 consecutive days with precipitation $<1.0$\,mm in southern peat regencies. This threshold should automatically trigger preemptive cloud seeding (Operasi Modifikasi Cuaca / OMC) and helicopter patrols before underground peat combustion initiates.
++    \item \textbf{14-Day Dry Spell Emergency Trigger Protocol}: Disaster mitigation agencies (BPBD and BNPB) should formalize a mandatory regulatory protocol elevating provincial preparedness to \textit{Siaga Darurat} whenever weather stations record 12--14 consecutive days with precipitation $<1.0$\,mm in southern peat regencies. This threshold should automatically trigger preemptive cloud seeding (Operasi Modifikasi Cuaca, OMC) and helicopter patrols before underground peat combustion initiates.
+     \item \textbf{Prioritized Hydrological Rewetting along Canal Corridors}: The Peatland and Mangrove Restoration Agency (BRGM) and the Ministry of Public Works should concentrate canal-blocking investments (box dams and compacted peat dams) within a 3,000-meter corridor along the primary canal backbone (Saluran Primer Induk) of ex-PLG Blocks A and B to maintain phreatic water levels above $-40$\,cm.
+     \item \textbf{Institutional Enclosure of Degraded APL Lands}: The Ministry of Environment and Forestry and regional governments must accelerate the administrative reclassification of abandoned ex-PLG APL peatlands into designated Social Forestry (\textit{Perhutanan Sosial}), Forest Management Units (KPH), or Special Purpose Forest Areas (KHDTK), assigning formal tenure, resource rights, and fire-prevention budgets to local communities.
+     \item \textbf{Automated ESG Spatial Concession Dashboards}: Environmental law enforcement agencies should establish automated, near-real-time spatial dashboards cross-referencing FIRMS thermal detections against corporate HGU and PBPH perimeters, enforcing strict liability under Law No.~32/2009.

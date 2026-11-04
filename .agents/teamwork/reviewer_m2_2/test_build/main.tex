@@ -1,0 +1,69 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Core Packages ---
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[round,numbers,sort&compress]{natbib}
+\usepackage{microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage[colorlinks=true,linkcolor=blue!70!black,citecolor=blue!70!black,urlcolor=blue!70!black]{hyperref}
+
+% --- Graphics Path ---
+\graphicspath{{/Users/bidang4/Projects/3_Other_Projects/karhutla-analisis/output/figures/}}
+
+% --- Document Metadata ---
+\title{\textbf{Spatiotemporal Fire Intensity Modeling in Degraded Tropical Peatlands: Addressing Spatial Autocorrelation and Land Tenure Governance in Central Kalimantan}}
+
+\author{
+    \textbf{Geospatial AI \& Environmental Analytics Research Group}\thanks{Corresponding author: Geospatial AI \& Environmental Analytics Laboratory. E-mail: analytics@diskominfo.kalteng.go.id}\\
+    \textit{Center for Remote Sensing and Disaster Risk Science}\\
+    \textit{Provincial Peatland Wildfire Analytics Consortium, Central Kalimantan, Indonesia}
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% --- Section 0: Abstract & Keywords ---
+\input{sections/00_abstract.tex}
+
+\vspace{1.5em}
+\hrule
+\vspace{1.5em}
+
+% --- Section 1: Introduction ---
+\input{sections/01_introduction.tex}
+
+% --- Section 2: Materials and Methods ---
+\input{sections/02_materials_methods.tex}
+
+% --- Section 3: Results ---
+\input{sections/03_results.tex}
+
+% --- Section 4: Discussion ---
+\input{sections/04_discussion.tex}
+
+% --- Section 5: Conclusions and Policy Implications ---
+\input{sections/05_conclusions.tex}
+
+\section*{Data Availability Statement}
+The master processed dataset of 43,937 active fire hotspots, along with official administrative boundaries (geoBoundaries ADM2), primary canal vectors in UTM Zone 49S projection, and trained machine learning models, are maintained within the public research repository at \url{https://github.com/diskominfo-kalteng/karhutla-analisis}. Raw active fire thermal anomalies are openly accessible from NASA FIRMS (\url{https://firms.modaps.eosdis.nasa.gov/}). Atmospheric reanalysis data are distributed by ECMWF Copernicus Climate Change Service (\url{https://cds.climate.copernicus.eu/}).
+
+\section*{Declaration of Competing Interest}
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Acknowledgments}
+This research was supported by the Geospatial Disaster Management and Data Analytics Initiative. The authors express gratitude to NASA FIRMS for providing active fire satellite data streams, the Indonesian Center for Agricultural Land Resources Research and Development (BBLSDLP) for peatland depth classifications, and the Ministry of Environment and Forestry (KLHK) for SiPongi burned area records.
+
+% --- Bibliographic References ---
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

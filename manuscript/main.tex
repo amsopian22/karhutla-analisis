@@ -1,0 +1,157 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Core Typography & Math Packages ---
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}            % Elegant Palatino typeface for journal publishing
+\usepackage{amsmath,amssymb}
+\usepackage{microtype}           % Optical margin protrusion and font kerning
+\usepackage{setspace}            % Professional line spacing control
+\setstretch{1.14}                % Optimized line rhythm
+
+% --- Layout & Geometry ---
+\usepackage[margin=1in,headheight=14.5pt,headsep=18pt,footskip=25pt]{geometry}
+\usepackage{fancyhdr}            % Publication running headers and footers
+\usepackage{titlesec}            % Strict section styling and hierarchy
+\usepackage{enumitem}            % Compact and elegant list spacing
+
+% --- Figures, Tables & Captions ---
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% --- Bibliographic Citations & URLs ---
+\usepackage[square,numbers,sort&compress]{natbib}
+\usepackage{url}
+\usepackage{xurl}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+% --- Color Palette ---
+\definecolor{navyblue}{RGB}{16, 44, 87}       % Deep navy for headings and primary accents
+\definecolor{slate}{RGB}{30, 41, 59}          % Dark slate for secondary headings
+\definecolor{darkslate}{RGB}{51, 65, 85}      % Medium slate for subsubsections
+\definecolor{citeblue}{RGB}{15, 76, 129}      % Academic blue for citations and links
+\definecolor{rulecolor}{RGB}{203, 213, 225}   % Soft gray for subtle rules
+
+% --- Hyperref Setup ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=citeblue,
+    citecolor=citeblue,
+    urlcolor=citeblue,
+    pdftitle={Spatiotemporal Fire Intensity Modeling in Degraded Tropical Peatlands: Addressing Spatial Autocorrelation and Land Tenure Governance in Central Kalimantan},
+    pdfauthor={Ahmad Sopian},
+    pdfsubject={Tropical Peatland Wildfire Machine Learning and Land Tenure Governance},
+    pdfkeywords={Tropical peatlands, Wildfire modeling, Spatial block cross-validation, Spatial memorization, Random Forest, TreeSHAP, Central Kalimantan},
+    pdfcreator={LaTeX with hyperref, mathpazo, and tectonic}
+}
+
+% --- Section Headings Styling ---
+\titleformat{\section}
+  {\normalfont\large\bfseries\color{navyblue}}{\thesection}{0.8em}{}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries\color{slate}}{\thesubsection}{0.8em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{darkslate}}{\thesubsubsection}{0.8em}{}
+
+\titlespacing*{\section}{0pt}{14pt plus 3pt minus 2pt}{5pt plus 1pt minus 1pt}
+\titlespacing*{\subsection}{0pt}{10pt plus 2pt minus 1pt}{4pt plus 1pt minus 1pt}
+\titlespacing*{\subsubsection}{0pt}{8pt plus 2pt minus 1pt}{3pt plus 1pt minus 1pt}
+
+% --- Running Header & Footer Setup ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\color{darkslate}\textit{Wildfire Modeling \& Land Tenure Governance in Degraded Tropical Peatlands}}
+\fancyhead[R]{\footnotesize\color{darkslate}\textit{A. Sopian (2026)}}
+\fancyfoot[C]{\footnotesize\color{darkslate}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{rulecolor}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0pt}
+
+% --- Caption Styling ---
+\captionsetup{
+    font={small,stretch=1.05},
+    labelfont={bf,color=navyblue},
+    labelsep=period,
+    skip=7pt,
+    justification=justified,
+    singlelinecheck=false
+}
+
+% --- List Spacing Tuning ---
+\setlist[enumerate]{leftmargin=2em, itemsep=2.5pt, parsep=0.5pt, topsep=3.5pt}
+\setlist[itemize]{leftmargin=2em, itemsep=2.5pt, parsep=0.5pt, topsep=3.5pt}
+
+% --- Paragraph Spacing & Typography ---
+\setlength{\parindent}{1.4em}
+\setlength{\parskip}{0.28em plus 0.1em minus 0.05em}
+\setlength{\emergencystretch}{2em}
+
+% --- Custom Table Column Types & Row Height ---
+\renewcommand{\arraystretch}{1.22}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% --- Graphics Path ---
+\graphicspath{{../output/figures/}{output/figures/}}
+
+% --- Document Metadata ---
+\title{\vspace{-1.5em}\LARGE\textbf{\color{navyblue}Spatiotemporal Fire Intensity Modeling in Degraded Tropical Peatlands: Addressing Spatial Autocorrelation and Land Tenure Governance in Central Kalimantan}}
+
+\author{
+    \textbf{\large Ahmad Sopian}\thanks{Corresponding author. E-mail: \texttt{ahmadsopian22@gmail.com}}\\
+    \textit{\small Independent Researcher, Samarinda, Kalimantan Timur, Indonesia}
+}
+
+\date{\small\today}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{plain}
+
+% --- Section 0: Abstract & Keywords ---
+\input{sections/00_abstract.tex}
+
+\vspace{1.0em}
+{\color{rulecolor}\hrule height 0.6pt}
+\vspace{1.2em}
+
+% --- Section 1: Introduction ---
+\input{sections/01_introduction.tex}
+
+% --- Section 2: Materials and Methods ---
+\input{sections/02_materials_methods.tex}
+
+% --- Section 3: Results ---
+\input{sections/03_results.tex}
+
+% --- Section 4: Discussion ---
+\input{sections/04_discussion.tex}
+
+% --- Section 5: Conclusions and Policy Implications ---
+\input{sections/05_conclusions.tex}
+
+\section*{Data Availability Statement}
+Raw active fire thermal anomalies are accessible from NASA FIRMS (\url{https://firms.modaps.eosdis.nasa.gov/}). Peatland hydrological unit boundaries and peat depth inventories are distributed by the Indonesian Ministry of Environment and Forestry (KLHK) and BBLSDLP. Atmospheric reanalysis variables were obtained from the ECMWF Copernicus Climate Change Service (\url{https://cds.climate.copernicus.eu/}). The processed analytical datasets, spatial feature engineering pipelines, and machine learning modeling code supporting the findings of this study are available from the corresponding author upon reasonable request.
+
+\section*{Funding}
+This research received no external funding and was conducted as an independent research project.
+
+\section*{Declaration of Competing Interest}
+The author declares that he has no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Acknowledgments}
+The author thanks NASA FIRMS for active fire satellite data streams, the Indonesian Center for Agricultural Land Resources Research and Development (BBLSDLP) for peatland depth classifications, and the Ministry of Environment and Forestry (KLHK) for SiPongi burned area records.
+
+% --- Bibliographic References ---
+\small
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}

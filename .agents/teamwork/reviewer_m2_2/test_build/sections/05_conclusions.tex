@@ -1,0 +1,29 @@
+\section{Conclusions and Policy Implications}
+\label{sec:conclusions}
+
+\subsection{Key Scientific Conclusions}
+\label{subsec:concl_scientific}
+
+This study integrated 43,937 NASA FIRMS satellite observations, official BBLSDLP (2019) peatland classifications, metric projected canal vectors in UTM Zone 49S, ECMWF ERA5-Land reanalysis, and cadastral concession layers to analyze the drivers, predictive modeling, and governance of wildfires in Central Kalimantan. The core findings are:
+\begin{enumerate}
+    \item \textbf{Decadal Climate Non-Linearity}: Official SiPongi KLHK records from 2018 to 2026 reveal that over 85\% of cumulative burned area was concentrated within two positive El Ni\~no episodes (2019 and 2023), confirming that macro-climatic desiccation overrides baseline ignition rates.
+    \item \textbf{Institutional Void in Unallocated APL Peatlands}: Spatial overlays demonstrated that \textbf{75.42\%} of active fire hotspots occurred on unallocated Non-Concession land (\textit{Area Penggunaan Lain} / APL), while certified oil palm concessions (HGU) and commercial forestry licenses (PBPH) accounted for \textbf{16.56\%} and \textbf{8.02\%}, respectively. Wildfire mitigation is fundamentally compromised by an institutional void in unmanaged state peatlands.
+    \item \textbf{The Peat-Drainage Proximity Nexus}: \textbf{74.3\%} of fires ignited on peatlands, with over \textbf{52.5\%} situated in deep ($>2$\,m) and very deep ($>3$\,m) peat domes. Metric Euclidean distance to primary canals in the ex-PLG landscape was the second most dominant predictor of severe Fire Radiative Power ($\text{mean } |\text{SHAP}| = 0.0322$).
+    \item \textbf{Resolution of Spatial Memorization Overfitting}: Coordinate-dependent Random Forest models (Model~A) suffered catastrophic collapse under Spatial Block Cross-Validation (mean ROC-AUC dropping from 0.7956 to 0.5399; $F_1$-score collapsing to 0.0000 across four of five folds). Conversely, the Pure Biophysical Model (Model~B) achieved a 2.40-fold higher mean spatial $F_1$-score (0.1399) and positive detection across all five folds, demonstrating genuine transferability.
+\end{enumerate}
+
+\subsection{Actionable Policy Recommendations}
+\label{subsec:concl_policy}
+
+Based on these empirical findings, we propose four concrete policy interventions for regional and national disaster management authorities:
+\begin{enumerate}
+    \item \textbf{14-Day Dry Spell Emergency Trigger Protocol}: Disaster mitigation agencies (BPBD and BNPB) should formalize a mandatory regulatory protocol elevating provincial preparedness to \textit{Siaga Darurat} (Emergency Readiness) whenever weather stations record 12--14 consecutive days with precipitation $<1.0$\,mm in southern peat regencies. This threshold should automatically trigger preemptive cloud seeding (Operasi Modifikasi Cuaca / OMC) and helicopter patrols before underground peat combustion initiates.
+    \item \textbf{Prioritized Hydrological Rewetting along Canal Corridors}: The Peatland and Mangrove Restoration Agency (BRGM) and the Ministry of Public Works should concentrate canal-blocking investments (box dams and compacted peat dams) within a 3,000-meter corridor along the primary canal backbone (Saluran Primer Induk) of ex-PLG Blocks A and B to maintain phreatic water levels above $-40$\,cm.
+    \item \textbf{Institutional Enclosure of Degraded APL Lands}: The Ministry of Environment and Forestry and regional governments must accelerate the administrative reclassification of abandoned ex-PLG APL peatlands into designated Social Forestry (\textit{Perhutanan Sosial}), Forest Management Units (KPH), or Special Purpose Forest Areas (KHDTK), assigning formal tenure, resource rights, and fire-prevention budgets to local communities.
+    \item \textbf{Automated ESG Spatial Concession Dashboards}: Environmental law enforcement agencies should establish automated, near-real-time spatial dashboards cross-referencing FIRMS thermal detections against corporate HGU and PBPH perimeters, enforcing strict liability under Law No.~32/2009.
+\end{enumerate}
+
+\subsection{Future Research Horizons}
+\label{subsec:concl_future}
+
+Future research should expand upon these findings through three principal directions: (1) integrating Sentinel-1 Synthetic Aperture Radar (InSAR) interferometry to measure continuous surface peat subsidence as an operational indicator of groundwater table depletion; (2) deploying dense, real-time in-situ Internet-of-Things (IoT) groundwater level sensor networks across high-risk peat domes \citep{Dadap2021NatComm}; and (3) coupling machine learning fire intensity outputs with high-resolution atmospheric chemical transport models (such as WRF-Chem) to forecast downwind $\text{PM}_{2.5}$ aerosol dispersion and transboundary smoke-haze exposure across Southeast Asia \citep{Kiely2021ACP}.

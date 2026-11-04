@@ -1,0 +1,250 @@
+{
+    "model_b_pure_biophysical": {
+        "description": "Model Utama Tanpa Koordinat Spasial (Lat/Lon/Kabupaten)",
+        "features": [
+            "kedalaman_gambut_cm",
+            "jarak_kanal_m",
+            "is_ex_plg_landscape",
+            "curah_hujan_7h_mm",
+            "suhu_maks_c",
+            "kelembapan_relatif_pct",
+            "kecepatan_angin_kmh",
+            "dry_spell_days",
+            "fwi_score",
+            "tipe_lahan",
+            "tutupan_lahan",
+            "status_konsesi"
+        ],
+        "test_roc_auc": 0.7527,
+        "test_f1_score": 0.3983,
+        "precision_reguler": 0.9206,
+        "recall_ekstrem": 0.6582,
+        "spatial_block_cv_mean_roc_auc": 0.495,
+        "spatial_block_cv_std_roc_auc": 0.049,
+        "spatial_block_cv_mean_f1": 0.1399,
+        "spatial_block_cv_folds_auc": [
+            0.5827,
+            0.5041,
+            0.49,
+            0.4452,
+            0.4533
+        ],
+        "spatial_block_cv_folds_f1": [
+            0.2914,
+            0.0657,
+            0.1056,
+            0.0646,
+            0.1722
+        ],
+        "spatial_block_cv_folds_detail": [
+            {
+                "fold": 1,
+                "test_regencies": [
+                    "Seruyan"
+                ],
+                "roc_auc": 0.5827,
+                "f1_score": 0.2914
+            },
+            {
+                "fold": 2,
+                "test_regencies": [
+                    "Barito Timur",
+                    "Barito Utara",
+                    "Lamandau",
+                    "Murung Raya",
+                    "Pulang Pisau"
+                ],
+                "roc_auc": 0.5041,
+                "f1_score": 0.0657
+            },
+            {
+                "fold": 3,
+                "test_regencies": [
+                    "Barito Selatan",
+                    "Gunung Mas",
+                    "Kapuas",
+                    "Sukamara"
+                ],
+                "roc_auc": 0.49,
+                "f1_score": 0.1056
+            },
+            {
+                "fold": 4,
+                "test_regencies": [
+                    "Katingan",
+                    "Kota Palangka Raya"
+                ],
+                "roc_auc": 0.4452,
+                "f1_score": 0.0646
+            },
+            {
+                "fold": 5,
+                "test_regencies": [
+                    "Kotawaringin Barat",
+                    "Kotawaringin Timur"
+                ],
+                "roc_auc": 0.4533,
+                "f1_score": 0.1722
+            }
+        ]
+    },
+    "model_a_spatial_memorization": {
+        "description": "Baseline Model Hafalan Spasial (Dengan Lat/Lon/Kabupaten)",
+        "features": [
+            "latitude",
+            "longitude",
+            "kedalaman_gambut_cm",
+            "jarak_kanal_m",
+            "is_ex_plg_landscape",
+            "curah_hujan_7h_mm",
+            "suhu_maks_c",
+            "kelembapan_relatif_pct",
+            "kecepatan_angin_kmh",
+            "dry_spell_days",
+            "fwi_score",
+            "kabupaten_kota",
+            "tipe_lahan",
+            "tutupan_lahan",
+            "status_konsesi"
+        ],
+        "test_roc_auc": 0.7956,
+        "test_f1_score": 0.4512,
+        "spatial_block_cv_mean_roc_auc": 0.5399,
+        "spatial_block_cv_std_roc_auc": 0.0531,
+        "spatial_block_cv_mean_f1": 0.0583,
+        "spatial_block_cv_folds_auc": [
+            0.5955,
+            0.5125,
+            0.5259,
+            0.4622,
+            0.6034
+        ],
+        "spatial_block_cv_folds_f1": [
+            0.2913,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "spatial_block_cv_folds_detail": [
+            {
+                "fold": 1,
+                "test_regencies": [
+                    "Seruyan"
+                ],
+                "roc_auc": 0.5955,
+                "f1_score": 0.2913
+            },
+            {
+                "fold": 2,
+                "test_regencies": [
+                    "Barito Timur",
+                    "Barito Utara",
+                    "Lamandau",
+                    "Murung Raya",
+                    "Pulang Pisau"
+                ],
+                "roc_auc": 0.5125,
+                "f1_score": 0.0
+            },
+            {
+                "fold": 3,
+                "test_regencies": [
+                    "Barito Selatan",
+                    "Gunung Mas",
+                    "Kapuas",
+                    "Sukamara"
+                ],
+                "roc_auc": 0.5259,
+                "f1_score": 0.0
+            },
+            {
+                "fold": 4,
+                "test_regencies": [
+                    "Katingan",
+                    "Kota Palangka Raya"
+                ],
+                "roc_auc": 0.4622,
+                "f1_score": 0.0
+            },
+            {
+                "fold": 5,
+                "test_regencies": [
+                    "Kotawaringin Barat",
+                    "Kotawaringin Timur"
+                ],
+                "roc_auc": 0.6034,
+                "f1_score": 0.0
+            }
+        ]
+    },
+    "shap_importance_ranking": [
+        {
+            "feature": "curah_hujan_7h_mm",
+            "label": "7-Day Cumulative Rainfall (mm)",
+            "mean_abs_shap": 0.0329
+        },
+        {
+            "feature": "jarak_kanal_m",
+            "label": "Distance to Primary Canal (m)",
+            "mean_abs_shap": 0.0322
+        },
+        {
+            "feature": "kecepatan_angin_kmh",
+            "label": "Maximum Wind Speed (km/h)",
+            "mean_abs_shap": 0.0254
+        },
+        {
+            "feature": "dry_spell_days",
+            "label": "Consecutive Dry Spell (days)",
+            "mean_abs_shap": 0.0224
+        },
+        {
+            "feature": "is_ex_plg_landscape",
+            "label": "Ex-PLG Landscape Corridor",
+            "mean_abs_shap": 0.0222
+        },
+        {
+            "feature": "kedalaman_gambut_cm",
+            "label": "Peat Dome Thickness (cm)",
+            "mean_abs_shap": 0.0209
+        },
+        {
+            "feature": "suhu_maks_c",
+            "label": "Maximum Air Temperature (\u00b0C)",
+            "mean_abs_shap": 0.0203
+        },
+        {
+            "feature": "kelembapan_relatif_pct",
+            "label": "Relative Air Humidity (%)",
+            "mean_abs_shap": 0.0173
+        },
+        {
+            "feature": "tipe_lahan",
+            "label": "Peatland Soil Depth Class",
+            "mean_abs_shap": 0.0171
+        },
+        {
+            "feature": "fwi_score",
+            "label": "Fire Weather Index (FWI Score)",
+            "mean_abs_shap": 0.017
+        },
+        {
+            "feature": "status_konsesi",
+            "label": "Cadastral Concession Tenure",
+            "mean_abs_shap": 0.0094
+        },
+        {
+            "feature": "tutupan_lahan",
+            "label": "Vegetation Land Cover Class",
+            "mean_abs_shap": 0.0094
+        }
+    ],
+    "metadata": {
+        "total_samples": 43937,
+        "test_samples": 10985,
+        "target": "Severe Fire Intensity (FRP >= 12.0 MW)",
+        "weather_source": "ECMWF ERA5-Land Reanalysis",
+        "peat_source": "BBLSDLP Kementan (2019) / SK.130 MenLHK"
+    }
+}
