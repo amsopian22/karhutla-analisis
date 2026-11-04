@@ -57,21 +57,7 @@ The southern ombrotrophic peat basins host the former Mega Rice Project (PLG) zo
 * **Block C** (~390,000 ha): Situated between the Sebangau and Kahayan rivers (Kalampangan, Bereng Bengkel, Palangka Raya South).
 * **Block D** (~150,000 ha): Situated in the coastal peat dome south of the Kahayan river extending toward Sebangau Kuala.
 
-```
-       111°E             112°E             113°E             114°E             115°E
- 0° +-----------------------------------------------------------------------------------+
-    | [Northern Mineral Highlands: Murung Raya, Gunung Mas, Barito Utara]              |
--1° |                                                                                   |
-    |      [Transition Zone: Lamandau, Katingan North, Kotim North]                     |
--2° |                                                  [Palangka Raya]                  |
-    |  [Kobar]     [Seruyan / Sembuluh]    [Katingan]        |                          |
-    |                                                  [Block C] [Block B] [Block A]    |
--3° |  [Sukamara]         \___                     \___        \___   \___   /          |
-    |                         \Peat Lowlands/          \Mega Rice Project/  [Barsel]    |
-    |                      (Java Sea Coastline)                                         |
--4° +-----------------------------------------------------------------------------------+
-```
-*Figure 1. Conceptual regional layout of Central Kalimantan showing the northern mineral watershed and southern degraded peat complexes (ex-PLG Blocks A–D).*
+![**Figure 1. Geographic setting, spatial cross-validation partitioning, and degraded peatland infrastructure in Central Kalimantan, Indonesia.** (a) Regional inset showing the geographic position of Central Kalimantan within Borneo Island and Maritime Southeast Asia. (b) Provincial cartography featuring all 14 regencies and municipalities classified into five Spatial Block Cross-Validation partitions (`GroupKFold`), overlaid with the 24 official Peat Hydrological Units (KHG) from the BBLSDLP database. (c) Focal landscape zoom of the ex-Mega Rice Project (ex-PLG) peatland territory (Blocks A, B, C, and D) delineating the 13 primary drainage canal vectors (Saluran Primer Induk / SPI), Sebangau National Park conservation dome, metric scale bar, and cartographic graticules.](output/figures/01_peta_wilayah_studi_spatial_cv.png)
 
 ### 2.2. Data Acquisition and Geoprocessing Pipeline
 
@@ -193,6 +179,8 @@ The macro-decadal data demonstrates that over 85% of total cumulative burned are
 
 At the micro-crisis scale, satellite observations from NASA FIRMS during the 5–12 October 2026 window captured 43,937 verified hotspots. Temporal distribution showed extreme clustering during the first half of the episode: 5–8 October accounted for 33,942 hotspots (77.2% of total detections), peaking on 7 October with 9,859 hotspots and 8 October with 8,769 hotspots. From 9 October onward, the localized onset of convective showers across the northern and central highlands reduced daily detections to 3,128 (9 Oct) and 2,712 (12 Oct).
 
+![**Figure 2. Decadal burned area trajectory and diurnal satellite fire dynamics in Central Kalimantan.** (a) Time series of annual burned area extents (2018–2026) derived from official SiPongi KLHK administrative records, demonstrating that extreme El Niño drought cycles in 2019 (317,749 ha) and 2023 (165,896 ha) drove over 85% of cumulative burning. (b) Diurnal active fire dynamics and sensor distribution (VIIRS SNPP, NOAA-20, and MODIS Aqua) across the acute October 2026 crisis.](output/figures/05_tren_temporal_dan_harian.png)
+
 ---
 
 ### 3.2. Spatial Concentration and Land Tenure Overlay
@@ -213,6 +201,8 @@ Spatial aggregation across Central Kalimantan's 14 administrative entities revea
 | **Other 6 Regencies** | 1,955 | 4.45% | Northern interior mineral uplands (Lamandau: 773, Sukamara: 481, Gunung Mas: 407, Barito Timur: 227, Murung Raya: 44, Barito Utara: 23) |
 | **Total** | **43,937** | **100.00%** | **Province-wide validated observations** |
 
+![**Figure 3. Active fire spatiotemporal density and radiative energy regimes across Central Kalimantan during the October 2026 crisis.** (a) Two-dimensional hexbin spatial density surface of 43,937 verified NASA FIRMS active fire hotspots within official provincial administrative boundaries. (b) Spatial radiative regimes illustrating extreme combustion events (FRP $\ge$ 12.0 MW, $n = 6,648$) versus regular thermal anomalies (FRP < 12.0 MW, $n = 37,289$) overlaid on official Peat Hydrological Units (KHG). (c) Empirical probability density distribution of Fire Radiative Power (MW, log-scale) comparing peatland substrates against mineral soils.](output/figures/02_peta_densitas_hotspot_frp.png)
+
 The top three regencies—**Seruyan (21.3%)**, **Pulang Pisau (16.3%)**, and **Kapuas (14.4%)**—accounted for **51.9%** (22,813 hotspots) of all fire activity in the province. 
 
 Point-in-polygon spatial join against the cadastral concession databases resolves the long-standing debate over land tenure attribution:
@@ -221,6 +211,8 @@ Point-in-polygon spatial join against the cadastral concession databases resolve
 * **Commercial Forestry Concessions (PBPH)**: **8.02%** (3,523 hotspots) occurred within industrial timber plantations or ecosystem restoration concessions.
 
 Within the corporate concession boundaries, fire activity was concentrated among a small number of entities. The top three oil palm concessionaires with active fires were PT. Sangkowong Sinta (954 hotspots), PT. Graha Inti Jaya (472 hotspots), and PT. Bulau Sawit Bajenta (343 hotspots). Within forestry concessions, fire detections were dominated by PT. Rimba Makmur Utama (964 hotspots, situated in the degraded peat buffer of Katingan) and PT. Nusantara Raya Solusi (522 hotspots).
+
+![**Figure 4. Cadastral land tenure governance, spatial concession overlay, and corporate accountability audit in Central Kalimantan.** (a) Provincial spatial overlay of 627 certified oil palm concessions (HGU) and 185 commercial forestry concessions (PBPH) against 43,937 active fire hotspots, establishing that 75.4% (33,138 hotspots) ignited on unallocated Non-Concession land (APL). (b) Detailed zoom-in of the Seruyan basin concession boundary corridor. (c) Corporate accountability ranking of the top eight concession entities.](output/figures/04_peta_tenurial_konsesi_esg.png)
 
 ---
 
@@ -235,6 +227,8 @@ Intersection with the BBLSDLP (2019) peatland classification revealed that **74.
 Over 52.5% of all active fires in Central Kalimantan ignited directly on peat domes exceeding two meters in depth, representing deep organic fuelbeds with immense carbon release potential.
 
 In the ex-PLG landscape (Pulang Pisau, Kapuas, Kota Palangka Raya; $n = 16,645$), distance analysis to the vectorized canal network revealed a median distance of **14,946 meters** (~14.9 km), with intense clustering along secondary and primary channels in Sebangau, Jabiren, and Mentangai. Hotspots with severe fire radiative power ($FRP \ge 12.0$ MW) exhibited significantly closer proximity to canals (median: 8,420 m) than moderate-intensity fires (median: 16,110 m; Mann-Whitney U test, $p < 0.001$).
+
+![**Figure 5. High-resolution satellite forensics and canal proximity dynamics at the ex-Mega Rice Project (ex-PLG) drainage nexus.** (a) True-color optical satellite imagery mosaic covering the Block A Dadahup irrigation scheme in Kapuas Regency. (b) Spatial forensic overlay of primary drainage canal backbones against active fire clusters. (c) Cumulative active fire distribution as a function of Euclidean proximity to drainage canals.](output/figures/03_analisis_citra_satelit_kanal.png)
 
 ---
 
@@ -262,6 +256,8 @@ The empirical results expose the severe vulnerability of spatial machine learnin
 1. **The Spatial Memorization Trap**: Under standard random cross-validation, Model A achieved an impressive ROC-AUC of 0.7956. However, when tested on unseen spatial blocks via Spatial Block Cross-Validation, its ROC-AUC plunged by **25.6 percentage points to 0.5399**, while its F1-score collapsed to **0.0583** (a 87.1% reduction). The model completely failed to predict severe fires in novel regencies because its internal decision trees were anchored to localized coordinate thresholds (e.g., $\text{latitude} < -2.45$ and $\text{longitude} > 114.15$).
 2. **Generalizability of the Pure Biophysical Model**: Model B, trained exclusively on atmospheric, hydrologic, and edaphic variables without coordinates, achieved an honest test ROC-AUC of 0.7527, capturing 65.8% of all severe fires ($FRP \ge 12.0$ MW) with 92.1% regular fire precision. In Spatial Block CV, Model B maintained an F1-score of 0.1399—nearly 2.4 times higher than Model A—confirming that models relying on physical mechanisms possess far greater functional transferability across unfamiliar landscapes.
 
+![**Figure 6. Machine learning model performance evaluation.** (Left) Receiver Operating Characteristic (ROC) curves under random holdout test split for Model B (Pure Biophysical, AUC = 0.7527) and Model A (Spatial Memorization, AUC = 0.7956). (Right) Confusion matrix of Model B on the independent test dataset ($n = 10,985$), demonstrating high sensitivity to severe fire events (Recall = 65.82%).](output/figures/06_evaluasi_model_ml.png)
+
 ---
 
 ### 3.5. Explainable AI: TreeSHAP Feature Attribution
@@ -288,6 +284,8 @@ The TreeSHAP beeswarm distribution (Figure 5) reveals critical non-linear intera
 1. **The Fuel Moisture Deficit Threshold**: The single strongest driver of severe fire intensity is cumulative 7-day rainfall ($P_{\text{7d}}$). High rainfall values (red points) exert strong negative SHAP values (suppressing fire intensity), whereas precipitation dropping below 5.0 mm produces a sharp positive inflection that elevates severe fire log-odds by up to +0.18.
 2. **The Peat-Drainage Proximity Nexus**: In the ex-PLG landscape, proximity to drainage canals produces the steepest positive SHAP density. As distance to canal drops below 3,000 meters, SHAP values rise rapidly, confirming that artificial drainage channels create dry micro-climatic ribbons where fire energy release is maximized.
 3. **The 14-Day Dry Spell Inflection**: Dry spell duration ($D_{\text{spell}}$) demonstrates that severe fires rarely ignite during the first 7 days of dry weather. However, after 12–14 consecutive rainless days, SHAP values exhibit an exponential positive surge as the phreatic water level drops below the fibrous upper peat layer.
+
+![**Figure 7. TreeSHAP summary beeswarm plot for Model B.** Each point represents an individual active fire observation colored by feature value (red = high, blue = low), uncovering critical non-linear thresholds: 7-day antecedent rainfall deficit (< 5 mm), proximity to primary drainage canals (< 3 km), and extended dry spells (> 14 days).](output/figures/07_shap_feature_importance.png)
 
 ---
 
