@@ -25,9 +25,9 @@ In this study, we present a calibrated spatiotemporal investigation integrating 
 
 ### Editorial and Ethical Declarations:
 - **Originality:** This manuscript is an original work that has not been published previously and is not under consideration for publication elsewhere.
-- **Authorship and Affiliation:** The manuscript is authored solely by Ahmad Sopian as an **Independent Researcher** based in Samarinda, Kalimantan Timur, Indonesia.
-- **Funding Statement:** This research received no external funding or institutional grant and was conducted as an independent research project.
-- **Conflict of Interest:** The author declares that he has no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+- **Authorship and Affiliation:** The manuscript is co-authored by Ahmad Sopian (Independent Researcher, Samarinda, Kalimantan Timur, Indonesia; Corresponding Author) and Rahmi Susanti (Faculty of Public Health, Universitas Mulawarman, Samarinda, Kalimantan Timur, Indonesia).
+- **Funding Statement:** This research received no external funding or institutional grant and was conducted as an independent collaborative research project.
+- **Conflict of Interest:** The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
 - **Data Availability:** All processed master active fire data, administrative boundaries, primary canal vectors in UTM Zone 49S projection, and trained machine learning models are openly deposited and accessible in the research repository at https://github.com/amsopian22/karhutla-analisis. Raw active fire thermal anomalies are accessible from NASA FIRMS (https://firms.modaps.eosdis.nasa.gov/). Atmospheric reanalysis variables were obtained from the ECMWF ERA5-Land service.
 
 Given the strong emphasis on spatial machine learning methodology, ecological modeling, and land governance, we believe this manuscript will be of broad interest to the readership of your journal.
@@ -36,7 +36,11 @@ Thank you very much for your time, consideration, and handling of our submission
 
 Sincerely yours,
 
-**Ahmad Sopian**  
+**Ahmad Sopian** (Corresponding Author)  
 *Independent Researcher*  
 Samarinda, Kalimantan Timur, Indonesia  
 E-mail: ahmadsopian22@gmail.com  
+
+**Rahmi Susanti**  
+*Faculty of Public Health, Universitas Mulawarman*  
+Samarinda, Kalimantan Timur, Indonesia  

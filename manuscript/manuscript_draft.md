@@ -1,8 +1,12 @@
 # Spatiotemporal Fire Intensity Modeling in Degraded Tropical Peatlands: Addressing Spatial Autocorrelation and Land Tenure Governance in Central Kalimantan
 
-**Author:** Ahmad Sopian  
-**Affiliation:** Independent Researcher, Samarinda, Kalimantan Timur, Indonesia  
-**Contact:** ahmadsopian22@gmail.com  
+**Authors:**  
+1. **Ahmad Sopian**$^1$ (Corresponding author: ahmadsopian22@gmail.com)  
+2. **Rahmi Susanti**$^2$  
+
+**Affiliations:**  
+$^1$ Independent Researcher, Samarinda, Kalimantan Timur, Indonesia  
+$^2$ Faculty of Public Health, Universitas Mulawarman, Samarinda, Kalimantan Timur, Indonesia  
 **Target Journal:** *Remote Sensing of Environment* / *International Journal of Wildland Fire* / *MDPI Remote Sensing*  
 **Date:** November 2026  
 
@@ -335,13 +339,17 @@ This investigation integrated 43,937 NASA FIRMS satellite observations, official
 The master processed dataset of 43,937 active fire hotspots, official administrative boundaries (geoBoundaries ADM2), primary canal vectors in UTM Zone 49S projection, and trained machine learning models are openly accessible in the research repository at https://github.com/amsopian22/karhutla-analisis. Raw active fire thermal anomalies are accessible from NASA FIRMS (https://firms.modaps.eosdis.nasa.gov/). Atmospheric reanalysis data are distributed by the ECMWF Copernicus Climate Change Service (https://cds.climate.copernicus.eu/). Peatland hydrological unit boundaries and peat depth inventories are distributed by the Indonesian Ministry of Environment and Forestry (KLHK) and BBLSDLP.
 
 ## Funding
-This research received no external funding and was conducted as an independent research project.
+This research received no external funding and was conducted as an independent collaborative research project.
+
+## CRediT Author Statement
+* **Ahmad Sopian:** Conceptualization, Methodology, Software, Formal Analysis, Data Curation, Visualization, Writing - Original Draft, Project Administration.
+* **Rahmi Susanti:** Conceptualization, Methodology, Validation, Investigation, Environmental Health and Haze Exposure Analysis, Writing - Review & Editing.
 
 ## Declaration of Competing Interest
-The author declares that he has no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
 
 ## Acknowledgments
-The author thanks NASA FIRMS for active fire satellite data streams, the Indonesian Center for Agricultural Land Resources Research and Development (BBLSDLP) for peatland depth classifications, and the Ministry of Environment and Forestry (KLHK) for SiPongi burned area records.
+The authors thank NASA FIRMS for active fire satellite data streams, the Indonesian Center for Agricultural Land Resources Research and Development (BBLSDLP) for peatland depth classifications, and the Ministry of Environment and Forestry (KLHK) for SiPongi burned area records.
 
 ---
 
