@@ -332,7 +332,7 @@ This investigation integrated 43,937 NASA FIRMS satellite observations, official
 ---
 
 ## Data Availability Statement
-Raw active fire thermal anomalies are accessible from NASA FIRMS (https://firms.modaps.eosdis.nasa.gov/). Peatland hydrological unit boundaries and peat depth inventories are distributed by the Indonesian Ministry of Environment and Forestry (KLHK) and BBLSDLP. Atmospheric reanalysis variables were obtained from the ECMWF Copernicus Climate Change Service (https://cds.climate.copernicus.eu/). The processed analytical datasets, spatial feature engineering pipelines, and machine learning modeling code supporting the findings of this study are available from the corresponding author upon reasonable request.
+The master processed dataset of 43,937 active fire hotspots, official administrative boundaries (geoBoundaries ADM2), primary canal vectors in UTM Zone 49S projection, and trained machine learning models are openly accessible in the research repository at https://github.com/amsopian22/karhutla-analisis. Raw active fire thermal anomalies are accessible from NASA FIRMS (https://firms.modaps.eosdis.nasa.gov/). Atmospheric reanalysis data are distributed by the ECMWF Copernicus Climate Change Service (https://cds.climate.copernicus.eu/). Peatland hydrological unit boundaries and peat depth inventories are distributed by the Indonesian Ministry of Environment and Forestry (KLHK) and BBLSDLP.
 
 ## Funding
 This research received no external funding and was conducted as an independent research project.
