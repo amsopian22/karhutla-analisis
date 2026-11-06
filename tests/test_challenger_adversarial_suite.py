@@ -49,6 +49,7 @@ EXPECTED_FIGURES = [
     "02_peta_densitas_hotspot_frp.png",
     "03_analisis_citra_satelit_kanal.png",
     "04_peta_tenurial_konsesi_esg.png",
+    "09_spatial_boundary_discontinuity.png",
     "05_tren_temporal_dan_harian.png",
     "06_evaluasi_model_ml.png",
     "07_shap_feature_importance.png",
@@ -121,11 +122,11 @@ def test_pdf_binary_and_metadata():
     assert pages_match is not None, "Could not determine page count from pdfinfo"
     pages = int(pages_match.group(1))
     print(f"  Total Pages: {pages}")
-    assert pages == 28, f"Expected 28 pages, got {pages}"
+    assert pages == 31, f"Expected 31 pages, got {pages}"
 
     # Metadata check
     assert "Ahmad Sopian" in info, "Author missing in PDF metadata"
-    assert "Spatiotemporal Fire Intensity Modeling" in info or "Fire Intensity" in info, "Title missing in PDF metadata"
+    assert any(term in info for term in ["The Governance Void", "Concession Frontiers", "Spatiotemporal Fire Intensity Modeling", "Fire Intensity"]), "Title missing in PDF metadata"
 
 
 # ==============================================================================
@@ -277,7 +278,7 @@ def test_docx_embedded_figures_sha256_and_dpi():
             )
         matched_count += 1
 
-    assert matched_count == 7, f"Expected 7 matched figures, got {matched_count}"
+    assert matched_count == len(EXPECTED_FIGURES), f"Expected {len(EXPECTED_FIGURES)} matched figures, got {matched_count}"
 
 
 # ==============================================================================
@@ -317,9 +318,10 @@ def test_latex_cross_references_and_callout_order():
         ("Figure 2", "fig:fire_density_frp"),
         ("Figure 3", "fig:satellite_canal_forensic"),
         ("Figure 4", "fig:tenurial_concession"),
-        ("Figure 5", "fig:temporal_dynamics"),
-        ("Figure 6", "fig:model_evaluation"),
-        ("Figure 7", "fig:shap_importance"),
+        ("Figure 5", "fig:spatial_bdd"),
+        ("Figure 6", "fig:temporal_dynamics"),
+        ("Figure 7", "fig:model_evaluation"),
+        ("Figure 8", "fig:shap_importance"),
     ]
 
     print("  Figure First Callout Byte Offsets in LaTeX:")
@@ -423,17 +425,17 @@ def test_docx_callout_consistency_and_order():
     for bm in broken_markers:
         assert bm not in full_docx_text, f"Broken reference marker '{bm}' detected in DOCX text!"
 
-    # Verify Figure 1-7 callouts
+    # Verify Figure 1-8 callouts
     print("\n[DOCX Figure & Table Callout Audit]:")
     fig_positions = {}
-    for i in range(1, 8):
+    for i in range(1, 9):
         # Match 'Figure i' or 'Fig. i'
         m = re.search(rf"\b(?:Figure|Fig\.)\s*0?{i}\b", full_docx_text)
         assert m is not None, f"Figure {i} is never cited in DOCX text!"
         fig_positions[i] = m.start()
         print(f"  Figure {i} first callout position: char offset {fig_positions[i]}")
 
-    for i in range(1, 7):
+    for i in range(1, 8):
         assert fig_positions[i] < fig_positions[i + 1], (
             f"Figure callout in DOCX out of order: Figure {i} at {fig_positions[i]}, "
             f"after Figure {i+1} at {fig_positions[i+1]}"

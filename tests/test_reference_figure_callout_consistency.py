@@ -80,15 +80,16 @@ def test_latex_figures_and_tables_bidirectional_consistency():
     dangling_refs = all_refs - all_labels
     assert len(dangling_refs) == 0, f"Dangling \\ref found with no corresponding \\label: {dangling_refs}"
 
-    # 2. Key figures 1 to 7 must be explicitly referenced
+    # 2. Key figures 1 to 8 must be explicitly referenced
     required_fig_labels = {
         "fig:study_area": 1,
         "fig:fire_density_frp": 2,
         "fig:satellite_canal_forensic": 3,
         "fig:tenurial_concession": 4,
-        "fig:temporal_dynamics": 5,
-        "fig:model_evaluation": 6,
-        "fig:shap_importance": 7,
+        "fig:spatial_bdd": 5,
+        "fig:temporal_dynamics": 6,
+        "fig:model_evaluation": 7,
+        "fig:shap_importance": 8,
     }
 
     print("\n[LaTeX Figure Callout Audit]")
@@ -159,8 +160,8 @@ def test_markdown_figures_and_tables_callouts():
         assert body_callouts >= 1, f"Table {tab_num} has no in-text body callout in Markdown draft"
 
     print("\n[Markdown Figure Callout Audit]")
-    # Figures 1 to 7: verify markdown image embed exists AND in-text body callout exists
-    for fig_num in range(1, 8):
+    # Figures 1 to 8: verify markdown image embed exists AND in-text body callout exists
+    for fig_num in range(1, 9):
         embed_found = False
         body_callouts = 0
 
@@ -183,7 +184,7 @@ def test_markdown_figures_and_tables_callouts():
 
 
 def test_docx_figures_and_tables_callouts():
-    """Verify Word DOCX manuscript_main.docx contains callouts for Tables 1-4 and Figures 1-7."""
+    """Verify Word DOCX manuscript_main.docx contains callouts for Tables 1-4 and Figures 1-8."""
     assert os.path.exists(DOCX_PATH), f"DOCX file missing: {DOCX_PATH}"
     with zipfile.ZipFile(DOCX_PATH) as z:
         doc_xml = z.read("word/document.xml")
@@ -205,7 +206,7 @@ def test_docx_figures_and_tables_callouts():
         print(f"  Table {tab_num}: {tab_matches} total mentions in DOCX")
         assert tab_matches >= 2, f"Table {tab_num} missing caption or callout in DOCX ({tab_matches} mentions)"
 
-    for fig_num in range(1, 8):
+    for fig_num in range(1, 9):
         fig_matches = len(re.findall(rf"\bFigure\s*{fig_num}[a-z]?\b", full_docx_text, re.IGNORECASE))
         print(f"  Figure {fig_num}: {fig_matches} total mentions in DOCX")
         assert fig_matches >= 2, f"Figure {fig_num} missing caption or callout in DOCX ({fig_matches} mentions)"
@@ -216,28 +217,40 @@ def test_semantic_figure_alignment_no_mismatches():
     with open(MARKDOWN_PATH, "r", encoding="utf-8") as f:
         md_content = f.read()
 
-    # Rule 1: Model evaluation (ROC curve, confusion matrix) must be Figure 6, NEVER Figure 4 or 5
+    # Rule 1: Spatial BDD must be Figure 5
+    m_bdd = re.search(r"Spatial Boundary Discontinuity Design at Concession Frontiers.*?(?=###|\Z)", md_content, re.DOTALL)
+    assert m_bdd, "Spatial BDD section not found"
+    bdd_section = m_bdd.group(0)
+    assert "Figure 5" in bdd_section, "Figure 5 callout missing in Spatial BDD section"
+
+    # Rule 2: Decadal fire trajectory & diurnal dynamics must be Figure 6
+    m_temp = re.search(r"Decadal Fire Trajectory.*?(?=###|\Z)", md_content, re.DOTALL)
+    assert m_temp, "Temporal dynamics section not found"
+    temp_section = m_temp.group(0)
+    assert "Figure 6" in temp_section, "Figure 6 callout missing in Temporal dynamics section"
+
+    # Rule 3: Model evaluation (ROC curve, confusion matrix) must be Figure 7, NEVER Figure 4 or 5
     m_ml = re.search(r"Machine Learning Evaluation:.*?(?=###|\Z)", md_content, re.DOTALL)
     assert m_ml, "Machine Learning section not found"
     ml_section = m_ml.group(0)
-    assert "Figure 6" in ml_section, "Figure 6 callout missing in Machine Learning section"
+    assert "Figure 7" in ml_section, "Figure 7 callout missing in Machine Learning section"
     assert "Figure 4" not in ml_section, "Mismatched callout: Figure 4 mistakenly called in Machine Learning section"
     assert "Figure 5" not in ml_section, "Mismatched callout: Figure 5 mistakenly called in Machine Learning section"
 
-    # Rule 2: TreeSHAP beeswarm / feature attribution must be Figure 7
+    # Rule 4: TreeSHAP beeswarm / feature attribution must be Figure 8
     m_shap = re.search(r"Explainable AI: TreeSHAP.*?(?=##|\Z)", md_content, re.DOTALL)
     assert m_shap, "TreeSHAP section not found"
     shap_section = m_shap.group(0)
-    assert "Figure 7" in shap_section, "Figure 7 callout missing in TreeSHAP section"
+    assert "Figure 8" in shap_section, "Figure 8 callout missing in TreeSHAP section"
     assert "Figure 5" not in shap_section, "Mismatched callout: Figure 5 mistakenly called in TreeSHAP section"
 
-    # Rule 3: Concession / tenure overlay must be Figure 4
+    # Rule 5: Concession / tenure overlay must be Figure 4
     m_tenure = re.search(r"Cadastral Land Tenure Attribution.*?(?=###|\Z)", md_content, re.DOTALL)
     assert m_tenure, "Cadastral tenure section not found"
     tenure_section = m_tenure.group(0)
     assert "Figure 4" in tenure_section, "Figure 4 callout missing in Cadastral Tenure section"
 
-    # Rule 4: Canal distance decay forensics must be Figure 3
+    # Rule 6: Canal distance decay forensics must be Figure 3
     m_canal = re.search(r"Peatland Stratification and Canal Drainage.*?(?=###|\Z)", md_content, re.DOTALL)
     assert m_canal, "Canal forensics section not found"
     canal_section = m_canal.group(0)

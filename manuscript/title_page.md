@@ -1,7 +1,10 @@
 # Title Page with Author Details
 
 **Title:**  
-Spatiotemporal Fire Intensity Modeling in Degraded Tropical Peatlands: Addressing Spatial Autocorrelation and Land Tenure Governance in Central Kalimantan
+The Governance Void at Concession Frontiers: A Spatial Boundary Discontinuity Analysis of Peatland Wildfires in Central Kalimantan
+
+**Target Journal:**  
+*Land Use Policy* (Elsevier)
 
 ---
 

@@ -28,15 +28,16 @@ FIGURES_DIR = os.path.join(REPO_ROOT, "output", "figures")
 TECTONIC_BIN = "/opt/homebrew/bin/tectonic"
 PDFINFO_BIN = "/opt/homebrew/bin/pdfinfo"
 
-EXPECTED_PDF_PAGES = 28
+EXPECTED_PDF_PAGES = 31
 EXPECTED_TABLES_COUNT = 4
-EXPECTED_FIGURES_COUNT = 7
+EXPECTED_FIGURES_COUNT = 8
 
 MASTER_FIGURE_FILES = [
     "01_peta_wilayah_studi_spatial_cv.png",
     "02_peta_densitas_hotspot_frp.png",
     "03_analisis_citra_satelit_kanal.png",
     "04_peta_tenurial_konsesi_esg.png",
+    "09_spatial_boundary_discontinuity.png",
     "05_tren_temporal_dan_harian.png",
     "06_evaluasi_model_ml.png",
     "07_shap_feature_importance.png",
@@ -84,7 +85,7 @@ def test_pdf_rendering_and_metadata():
     )
 
     # 2. Assert Title & Authorship
-    assert "Title:" in info_output and "Fire Intensity" in info_output, "PDF Title metadata missing or corrupt"
+    assert "Title:" in info_output and any(t in info_output for t in ["The Governance Void", "Concession Frontiers", "Fire Intensity"]), "PDF Title metadata missing or corrupt"
     assert "Author:" in info_output and "Ahmad Sopian" in info_output, "PDF Author metadata missing or corrupt"
 
 

@@ -1,0 +1,210 @@
+{
+  "metadata": {
+    "title": "Spatial Boundary Discontinuity Design: Peatland Wildfires at Corporate Concession Frontiers",
+    "study_area": "Central Kalimantan, Indonesia",
+    "coordinate_reference_system": "EPSG:32749 (WGS 84 / UTM Zone 49S)",
+    "total_observations": 43937,
+    "concession_area_km2": 78087.64,
+    "non_concession_apl_area_km2": 76297.06
+  },
+  "discontinuity_3km_summary": {
+    "interior_minus_3km_to_0": {
+      "hotspot_count": 8961,
+      "area_km2": 48959.58,
+      "density_per_km2": 0.183,
+      "mean_frp_mw": 7.38,
+      "median_frp_mw": 2.98
+    },
+    "exterior_0_to_plus_3km": {
+      "hotspot_count": 9224,
+      "area_km2": 32203.09,
+      "density_per_km2": 0.2864,
+      "mean_frp_mw": 6.92,
+      "median_frp_mw": 2.93
+    },
+    "discontinuity_metrics": {
+      "density_ratio_exterior_vs_interior": 1.565,
+      "density_difference_per_km2": 0.1034,
+      "density_percentage_increase": 56.5,
+      "mann_whitney_u_stat": 41712351.5,
+      "mann_whitney_p_value": 0.27766279900874025,
+      "t_statistic": 1.8594290333062264,
+      "t_test_p_value": 0.06298307702159031
+    }
+  },
+  "discontinuity_1km_summary": {
+    "density_inside_1km": 0.2071,
+    "density_outside_1km": 0.2321,
+    "density_ratio_1km": 1.12
+  },
+  "band_table": [
+    {
+      "band_label": "[-3000, -2500) m",
+      "low_m": -3000,
+      "high_m": -2500,
+      "mid_km": -2.75,
+      "zone": "Concession Interior",
+      "count": 619,
+      "area_km2": 5232.24,
+      "density_per_km2": 0.1183,
+      "mean_frp": 6.94,
+      "median_frp": 2.51,
+      "sem_frp": 1.092,
+      "severe_fire_pct": 9.85
+    },
+    {
+      "band_label": "[-2500, -2000) m",
+      "low_m": -2500,
+      "high_m": -2000,
+      "mid_km": -2.25,
+      "zone": "Concession Interior",
+      "count": 844,
+      "area_km2": 6271.86,
+      "density_per_km2": 0.1346,
+      "mean_frp": 6.5,
+      "median_frp": 2.71,
+      "sem_frp": 0.467,
+      "severe_fire_pct": 12.32
+    },
+    {
+      "band_label": "[-2000, -1500) m",
+      "low_m": -2000,
+      "high_m": -1500,
+      "mid_km": -1.75,
+      "zone": "Concession Interior",
+      "count": 1312,
+      "area_km2": 7444.68,
+      "density_per_km2": 0.1762,
+      "mean_frp": 6.69,
+      "median_frp": 2.83,
+      "sem_frp": 0.376,
+      "severe_fire_pct": 12.2
+    },
+    {
+      "band_label": "[-1500, -1000) m",
+      "low_m": -1500,
+      "high_m": -1000,
+      "mid_km": -1.25,
+      "zone": "Concession Interior",
+      "count": 1788,
+      "area_km2": 8779.03,
+      "density_per_km2": 0.2037,
+      "mean_frp": 7.57,
+      "median_frp": 3.32,
+      "sem_frp": 0.37,
+      "severe_fire_pct": 15.94
+    },
+    {
+      "band_label": "[-1000, -500) m",
+      "low_m": -1000,
+      "high_m": -500,
+      "mid_km": -0.75,
+      "zone": "Concession Interior",
+      "count": 2174,
+      "area_km2": 10067.79,
+      "density_per_km2": 0.2159,
+      "mean_frp": 8.07,
+      "median_frp": 3.26,
+      "sem_frp": 0.433,
+      "severe_fire_pct": 15.27
+    },
+    {
+      "band_label": "[-500, +0) m",
+      "low_m": -500,
+      "high_m": 0,
+      "mid_km": -0.25,
+      "zone": "Concession Interior",
+      "count": 2224,
+      "area_km2": 11163.98,
+      "density_per_km2": 0.1992,
+      "mean_frp": 7.43,
+      "median_frp": 2.85,
+      "sem_frp": 0.389,
+      "severe_fire_pct": 13.35
+    },
+    {
+      "band_label": "[+0, +500) m",
+      "low_m": 0,
+      "high_m": 500,
+      "mid_km": 0.25,
+      "zone": "APL Non-Concession",
+      "count": 1822,
+      "area_km2": 8368.93,
+      "density_per_km2": 0.2177,
+      "mean_frp": 6.75,
+      "median_frp": 2.67,
+      "sem_frp": 0.35,
+      "severe_fire_pct": 11.14
+    },
+    {
+      "band_label": "[+500, +1000) m",
+      "low_m": 500,
+      "high_m": 1000,
+      "mid_km": 0.75,
+      "zone": "APL Non-Concession",
+      "count": 1654,
+      "area_km2": 6609.37,
+      "density_per_km2": 0.2503,
+      "mean_frp": 7.09,
+      "median_frp": 2.66,
+      "sem_frp": 0.473,
+      "severe_fire_pct": 10.82
+    },
+    {
+      "band_label": "[+1000, +1500) m",
+      "low_m": 1000,
+      "high_m": 1500,
+      "mid_km": 1.25,
+      "zone": "APL Non-Concession",
+      "count": 1567,
+      "area_km2": 5447.47,
+      "density_per_km2": 0.2877,
+      "mean_frp": 6.23,
+      "median_frp": 3.02,
+      "sem_frp": 0.291,
+      "severe_fire_pct": 10.47
+    },
+    {
+      "band_label": "[+1500, +2000) m",
+      "low_m": 1500,
+      "high_m": 2000,
+      "mid_km": 1.75,
+      "zone": "APL Non-Concession",
+      "count": 1558,
+      "area_km2": 4566.17,
+      "density_per_km2": 0.3412,
+      "mean_frp": 6.7,
+      "median_frp": 3.01,
+      "sem_frp": 0.406,
+      "severe_fire_pct": 12.52
+    },
+    {
+      "band_label": "[+2000, +2500) m",
+      "low_m": 2000,
+      "high_m": 2500,
+      "mid_km": 2.25,
+      "zone": "APL Non-Concession",
+      "count": 1387,
+      "area_km2": 3867.77,
+      "density_per_km2": 0.3586,
+      "mean_frp": 7.23,
+      "median_frp": 3.25,
+      "sem_frp": 0.393,
+      "severe_fire_pct": 14.42
+    },
+    {
+      "band_label": "[+2500, +3000) m",
+      "low_m": 2500,
+      "high_m": 3000,
+      "mid_km": 2.75,
+      "zone": "APL Non-Concession",
+      "count": 1236,
+      "area_km2": 3343.38,
+      "density_per_km2": 0.3697,
+      "mean_frp": 7.74,
+      "median_frp": 3.19,
+      "sem_frp": 0.405,
+      "severe_fire_pct": 17.07
+    }
+  ]
+}

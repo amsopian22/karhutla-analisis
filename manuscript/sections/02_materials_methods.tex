@@ -144,6 +144,35 @@ A comprehensive summary of all feature variables ingested into the predictive mo
 \end{tabularx}
 \end{table}
 
+\subsection{Spatial Boundary Discontinuity Design (Spatial BDD)}
+\label{subsec:spatial_bdd_methods}
+
+To rigorously test whether corporate legal liability deters fire inside perimeters while displacing ignitions across boundaries into unmanaged state land, we implement a Spatial Boundary Discontinuity Design (Spatial BDD) \citep{LeeLemieux2010JEL}. Under this quasi-experimental framework, corporate concession perimeters serve as legal cutoffs separating strictly regulated corporate lands from open-access state lands.
+
+All cadastral concession polygons (627 oil palm HGU and 185 commercial forestry PBPH) and administrative boundaries were reprojected to UTM Zone 49S (\mbox{EPSG:32749}). Concession geometries within Central Kalimantan were dissolved into a unified corporate estate polygon $\Omega_C$. The exterior perimeter boundary $\partial \Omega_C$ represents the legal frontier separating concession lands from unallocated state land (\textit{Area Penggunaan Lain}, APL).
+
+For each active fire hotspot $\mathbf{p}_i = (x_i, y_i)$, the signed Euclidean distance to the nearest corporate concession boundary vertex was computed according to Equation~\eqref{eq:signed_dist}:
+\begin{equation}
+\tilde{d}_i = \begin{cases}
+-\min_{\mathbf{b} \in \partial \Omega_C} \|\mathbf{p}_i - \mathbf{b}\|_2, & \text{if } \mathbf{p}_i \in \Omega_C \text{ (Corporate Concession Interior)} \\
++\min_{\mathbf{b} \in \partial \Omega_C} \|\mathbf{p}_i - \mathbf{b}\|_2, & \text{if } \mathbf{p}_i \notin \Omega_C \text{ (APL Non-Concession State Land)}
+\end{cases}
+\label{eq:signed_dist}
+\end{equation}
+where negative values denote locations within certified concessions (Strict Liability Zone) and positive values denote exterior locations on unallocated APL state land.
+
+We evaluated a continuous frontier bandwidth of $\pm 3,000$\,m, discretized into 500-meter concentric buffer bands $B_k = [d_k, d_{k+1})$. For each band $k$, the exact geometric surface area $A(B_k) = \text{Area}(B_k \cap \Omega_{\text{Kalteng}})$ was computed by planar polygon buffering in UTM Zone 49S and clipping to the provincial land boundary. Active fire hotspot density $D_k$ was formulated as:
+\begin{equation}
+D_k = \frac{N_k}{A(B_k)} \quad (\text{hotspots}/\text{km}^2)
+\label{eq:density_bdd}
+\end{equation}
+where $N_k$ is the number of active fire detections in band $k$. The boundary treatment effect (discontinuity jump at the legal border $\tilde{d} = 0$) was estimated via local second-order polynomial regressions fit separately to the interior ($\tilde{d} < 0$) and exterior ($\tilde{d} > 0$) intervals:
+\begin{equation}
+\tau_{\text{BDD}} = \lim_{\tilde{d} \to 0^+} D(\tilde{d}) - \lim_{\tilde{d} \to 0^-} D(\tilde{d})
+\label{eq:bdd_jump}
+\end{equation}
+Differences in thermal intensity (FRP) and severe fire proportions between interior and exterior zones were evaluated using non-parametric Mann-Whitney $U$ tests and Welch's unequal variances $t$-tests.
+
 \subsection{Predictive Machine Learning and Validation Framework}
 \label{subsec:ml_framework}
 

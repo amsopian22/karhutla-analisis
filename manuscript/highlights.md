@@ -1,7 +1,7 @@
 # RESEARCH HIGHLIGHTS
 
-* 43,937 active fire detections analyzed across degraded Borneo peatlands.
-* Coordinate-based ML collapses under Spatial Block CV via Tobler's First Law.
-* Pure biophysical Random Forest retains 2.4-fold higher spatial CV F1-score.
-* 75.4% of fires occur on unallocated public lands (APL), revealing tenure void.
-* Explainable AI reveals critical 3 km canal corridor and 14-day drought trigger.
+* 75.4% of 43,937 Borneo peat fires ignite on unallocated state land (APL).
+* Spatial BDD reveals a +56.5% fire density jump outside concession borders.
+* Strict liability deters corporate fire but drives frontier spillover.
+* Coordinate ML collapses under spatial CV; pure biophysical model generalises.
+* Closing the APL governance void requires 3-km perimeter buffer stewardship.

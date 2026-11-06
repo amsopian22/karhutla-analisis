@@ -80,6 +80,25 @@ The spatial join showed that:
 
 Corridor analysis of the concession interface (Figure~\ref{fig:tenurial_concession}b) demonstrated severe fire clustering directly outside certified concession boundaries, reflecting a critical governance void in unallocated APL peatlands. While corporate concessions accounted for 24.58\% of all fires, detections were concentrated within a small subset of corporate entities (Figure~\ref{fig:tenurial_concession}c). Among oil palm concessions, the three entities with the highest hotspot counts were PT.~Sangkowong Sinta (954 hotspots), PT.~Graha Inti Jaya (472 hotspots), and PT.~Bulau Sawit Bajenta (343 hotspots). Within forestry concessions, thermal detections were led by PT.~Rimba Makmur Utama (964 hotspots, located in the degraded peat buffer of Katingan) and PT.~Nusantara Raya Solusi (522 hotspots).
 
+\subsection{Spatial Boundary Discontinuity Design at Concession Frontiers}
+\label{subsec:results_spatial_bdd}
+
+To evaluate whether the concentration of wildfires outside corporate concessions reflects a causal governance discontinuity rather than smooth spatial variation, we applied a Spatial Boundary Discontinuity Design (Spatial BDD) across the $\pm 3$-km frontier corridor of all certified corporate perimeters (Figure~\ref{fig:spatial_bdd}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.98\textwidth]{09_spatial_boundary_discontinuity.png}
+\caption{\textbf{Spatial Boundary Discontinuity Design (Spatial BDD) of active fire ignitions across certified corporate concession frontiers in Central Kalimantan.} \textbf{(a)} High-resolution cartographic zoom of the Pulang Pisau cadastral frontier (UTM Zone 49S), depicting certified corporate concession perimeters (amber polygons), 0-to-3\,km exterior buffer corridors (light red shading), cadastral perimeter frontiers (red line), and satellite active fire detections split by legal tenure. \textbf{(b)} Spatial hotspot density discontinuity curve as a function of signed Euclidean distance to the concession boundary ($\tilde{d} \in [-3.0, +3.0]$\,km), demonstrating a sharp +56.5\% discontinuity jump at the legal cutoff ($\tilde{d} = 0$), rising from $0.183\,\text{hotspots}/\text{km}^2$ inside concessions to $0.286\,\text{hotspots}/\text{km}^2$ on exterior APL state land ($0.370\,\text{hotspots}/\text{km}^2$ at 3\,km). \textbf{(c)} Mean Fire Radiative Power (MW) and severe fire percentage ($\text{FRP} \ge 12.0$\,MW) across 500-meter concentric distance bands. \textbf{(d)} Conceptual infographic diagram detailing the statutory strict liability mechanism (Law No.~32/2009, Art.~88) inside concessions, hydrological drainage spillover across frontiers, the open-access APL governance void, and recommended perimeter buffer stewardship policies.}
+\label{fig:spatial_bdd}
+\end{figure}
+
+The spatial boundary discontinuity analysis yielded three primary empirical findings:
+\begin{enumerate}
+    \item \textbf{Sharp Discontinuity in Active Fire Density}: Within the 3-km frontier window, 8,961 hotspots ignited in the concession interior ($-3\,\text{km} \le \tilde{d} < 0$\,km) across $48,959.58\,\text{km}^2$, yielding a baseline density of $0.1830\,\text{hotspots}/\text{km}^2$. Directly across the legal boundary on unallocated APL state land ($0\,\text{km} \le \tilde{d} \le +3$\,km), 9,224 hotspots ignited across $32,203.09\,\text{km}^2$, establishing an active fire density of $0.2864\,\text{hotspots}/\text{km}^2$. This represents an immediate $+56.5\%$ surge in fire density ($\tau_{\text{BDD}} = +0.1034\,\text{hotspots}/\text{km}^2$; density ratio $1.565$) across the cadastral frontier (Figure~\ref{fig:spatial_bdd}b).
+    \item \textbf{Distance-Decay Frontier Escalation}: Examination of 500-meter concentric bands revealed that fire density increases monotonically with distance outward into unallocated state land: from $0.1183\,\text{hotspots}/\text{km}^2$ in the deep concession interior ($-3.0$ to $-2.5$\,km) to $0.2177\,\text{hotspots}/\text{km}^2$ immediately adjacent to the border ($0$ to $+500$\,m), escalating to $0.3697\,\text{hotspots}/\text{km}^2$ in the outer frontier band ($+2.5$ to $+3.0$\,km). This represents a $>3.1$-fold density escalation between the corporate core and the open-access frontier.
+    \item \textbf{Combustion Intensity Parity across Frontiers}: While fire density diverged sharply, thermal energy output remained consistently severe across both sides of the border (Figure~\ref{fig:spatial_bdd}c). Mean Fire Radiative Power inside concessions averaged $7.38\,\text{MW}$ (median: $2.98\,\text{MW}$) compared to $6.92\,\text{MW}$ outside on APL state land (median: $2.93\,\text{MW}$; Mann-Whitney $U = 4.17 \times 10^7, p = 0.278$; Welch's $t = 1.86, p = 0.063$). Severe fire proportions ($\text{FRP} \ge 12.0$\,MW) peaked at the immediate boundary zone (16.2\% severe combustion at $-1.0$ to $-0.5$\,km, mean $\text{FRP} = 8.07\,\text{MW}$), indicating that border drainage canals create highly combustible edge conditions.
+\end{enumerate}
+
 \subsection{Decadal Fire Trajectory (2018--2026) and Diurnal Crisis Dynamics}
 \label{subsec:results_decadal}
 
