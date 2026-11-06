@@ -6,9 +6,9 @@ Programmatic verification of author keywords across all manuscript formats:
 2. Markdown: manuscript/manuscript_draft.md
 3. Word DOCX: manuscript/submission_package/manuscript_main.docx
 
-Elsevier Applied Geography Guide for Authors Requirement:
+Elsevier Remote Sensing Applications: Society and Environment (RSASE) Guide for Authors Requirement:
 - Authors must provide between 1 and 7 keywords.
-- Keywords should be specific and relevant to applied spatial geography and GIScience.
+- Keywords should be specific and relevant to remote sensing applications, environmental hazards, and societal governance.
 """
 
 import os
@@ -25,17 +25,19 @@ DOCX_MANUSCRIPT_PATH = os.path.join(REPO_ROOT, "manuscript", "submission_package
 MIN_KEYWORDS = 1
 MAX_KEYWORDS = 7
 
-# Core applied spatial geography and GIScience domain concept anchors
-APPLIED_GEOGRAPHY_ANCHORS = {
+# Core remote sensing applications, societal governance, and environmental domain anchors
+RSASE_ANCHORS = {
+    "remote",
+    "sensing",
+    "satellite",
     "spatial",
-    "geography",
-    "autocorrelation",
+    "peatlands",
+    "discontinuity",
     "cross-validation",
     "tenure",
-    "peatlands",
     "governance",
-    "wildfire",
-    "modeling",
+    "radiative",
+    "power",
 }
 
 
@@ -118,8 +120,8 @@ def test_docx_keywords_count():
     )
 
 
-def test_keywords_exact_alignment_with_applied_geography():
-    """Verify keywords embody core applied spatial geography and GIScience concepts."""
+def test_keywords_exact_alignment_with_rsase():
+    """Verify keywords embody core remote sensing applications, environment, and societal governance concepts."""
     keywords_latex = get_latex_keywords()
     keywords_md = get_markdown_keywords()
     keywords_docx = get_docx_keywords()
@@ -129,19 +131,23 @@ def test_keywords_exact_alignment_with_applied_geography():
         re.findall(r"\b[a-z-]+\b", " ".join(keywords_latex + keywords_md + keywords_docx).lower())
     )
 
-    print("\n[Thematic Domain Alignment Check]")
-    matched_anchors = APPLIED_GEOGRAPHY_ANCHORS.intersection(combined_words)
+    print("\n[Thematic Domain Alignment Check for RSASE]")
+    matched_anchors = RSASE_ANCHORS.intersection(combined_words)
     print(f"  Matched domain anchors: {matched_anchors}")
 
-    # Must match essential spatial geography pillars
+    # Must match essential Remote Sensing, Society, and Environment pillars
+    assert "remote" in combined_words or "sensing" in combined_words, "Missing core 'remote sensing' concept in keywords"
+    assert "satellite" in combined_words or "fires" in combined_words or "fire" in combined_words, "Missing Earth observation fire concept"
     assert "spatial" in combined_words, "Missing core 'spatial' concept in keywords"
-    assert "geography" in combined_words, "Missing core 'geography' concept in keywords"
-    assert "autocorrelation" in combined_words, "Missing 'autocorrelation' methodological concept in keywords"
+    assert "peatlands" in combined_words, "Missing 'peatlands' environmental concept in keywords"
     assert "cross-validation" in combined_words or "validation" in combined_words, (
         "Missing validation concept in keywords"
     )
     assert "tenure" in combined_words or "governance" in combined_words, (
         "Missing tenure/governance concept in keywords"
+    )
+    assert "radiative" in combined_words or "power" in combined_words, (
+        "Missing Fire Radiative Power (FRP) metric in keywords"
     )
 
 
@@ -158,7 +164,7 @@ def test_keywords_cross_format_parity():
 
     assert kw_latex == kw_md, f"Keywords mismatch between LaTeX and Markdown!\n{kw_latex}\n!=\n{kw_md}"
     assert kw_md == kw_docx, f"Keywords mismatch between Markdown and DOCX!\n{kw_md}\n!=\n{kw_docx}"
-    assert len(kw_latex) == 7, f"Expected exactly 7 keywords for Applied Geography, got {len(kw_latex)}"
+    assert len(kw_latex) == 7, f"Expected exactly 7 keywords for RSASE, got {len(kw_latex)}"
 
 
 if __name__ == "__main__":
@@ -168,6 +174,6 @@ if __name__ == "__main__":
     test_latex_keywords_count()
     test_markdown_keywords_count()
     test_docx_keywords_count()
-    test_keywords_exact_alignment_with_applied_geography()
+    test_keywords_exact_alignment_with_rsase()
     test_keywords_cross_format_parity()
     print("\n>>> ALL KEYWORDS ALIGNMENT TESTS PASSED (100% COMPLIANT) <<<")

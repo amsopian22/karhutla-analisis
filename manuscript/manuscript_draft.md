@@ -1,13 +1,13 @@
 # The Governance Void at Concession Frontiers: A Spatial Boundary Discontinuity Analysis of Peatland Wildfires in Central Kalimantan
 
 **Authors:**  
-1. **Ahmad Sopian**$ (Corresponding author: ahmadsopian22@gmail.com)  
-2. **Rahmi Susanti**$  
+1. **Ahmad Sopian**$^1$ (Corresponding author: ahmadsopian22@gmail.com)  
+2. **Rahmi Susanti**$^2$  
 
 **Affiliations:**  
-$ Independent Researcher, Samarinda, Kalimantan Timur, Indonesia  
-$ Faculty of Public Health, Universitas Mulawarman, Samarinda, Kalimantan Timur, Indonesia  
-**Target Journal:** *Land Use Policy* (Elsevier)  
+$^1$ Independent Researcher, Samarinda, Kalimantan Timur, Indonesia  
+$^2$ Faculty of Public Health, Universitas Mulawarman, Samarinda, Kalimantan Timur, Indonesia  
+**Target Journal:** *Remote Sensing Applications: Society and Environment* (Elsevier)  
 **Date:** November 2026  
 ---
 
@@ -15,7 +15,7 @@ $ Faculty of Public Health, Universitas Mulawarman, Samarinda, Kalimantan Timur,
 
 Tropical peatland wildfires in Southeast Asia represent a critical land governance dilemma. While environmental enforcement emphasizes corporate liability, fire distributions across jurisdictional boundaries remain contested. Here, we implement a Spatial Boundary Discontinuity Design (Spatial BDD) using 43,937 verified satellite active fire detections (NASA FIRMS) during the October 2026 crisis in Central Kalimantan, integrated with 812 audited concessions (627 oil palm HGU and 185 forestry PBPH), metric canal vectors, and ERA5-Land covariates. Cadastral overlay reveals that 75.4% (33,138 hotspots) ignited outside corporate perimeters on unallocated public lands (*Area Penggunaan Lain*, APL), exposing an acute governance void. Within a 3-km frontier corridor, Spatial BDD establishes a sharp +56.5% discontinuity in fire density, jumping from 0.183 hotspots/km² inside concessions to 0.286 hotspots/km² on exterior APL peatlands (peaking at 0.370 hotspots/km² at 3 km). Under 5-fold Spatial Block Cross-Validation, coordinate-dependent models suffered complete recall collapse ($F_1 = 0.00$) from spatial memorization. While cross-landscape covariate shift depressed spatial ROC-AUC, a pure biophysical Random Forest rescued operational detection across unseen regencies (holdout ROC-AUC: 0.7527; 2.4-fold higher spatial $F_1$-score). TreeSHAP identified a 3-km canal corridor and 14-day drought trigger as critical tipping points. Corporate strict liability (Law No. 32/2009) deters burning inside concessions but leaves adjacent state peatlands vulnerable to drainage spillover. Sustainable land governance requires extending statutory buffer liability across 3 km and formalizing community peatland management units.
 
-**Keywords:** Applied spatial geography; Tropical peatlands; Spatial boundary discontinuity; Spatial block cross-validation; Land tenure governance; Wildfire intensity modeling; Spatial autocorrelation.
+**Keywords:** Remote sensing applications; Satellite active fires; Tropical peatlands; Spatial boundary discontinuity; Spatial block cross-validation; Land tenure governance; Fire Radiative Power.
 
 ---
 

@@ -4,7 +4,7 @@
 The Governance Void at Concession Frontiers: A Spatial Boundary Discontinuity Analysis of Peatland Wildfires in Central Kalimantan
 
 **Target Journal:**  
-*Land Use Policy* (Elsevier)
+*Remote Sensing Applications: Society and Environment* (Elsevier)
 
 ---
 
