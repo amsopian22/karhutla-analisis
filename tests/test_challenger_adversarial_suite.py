@@ -122,7 +122,7 @@ def test_pdf_binary_and_metadata():
     assert pages_match is not None, "Could not determine page count from pdfinfo"
     pages = int(pages_match.group(1))
     print(f"  Total Pages: {pages}")
-    assert pages == 31, f"Expected 31 pages, got {pages}"
+    assert pages == 32, f"Expected 32 pages, got {pages}"
 
     # Metadata check
     assert "Ahmad Sopian" in info, "Author missing in PDF metadata"

@@ -28,7 +28,7 @@ FIGURES_DIR = os.path.join(REPO_ROOT, "output", "figures")
 TECTONIC_BIN = "/opt/homebrew/bin/tectonic"
 PDFINFO_BIN = "/opt/homebrew/bin/pdfinfo"
 
-EXPECTED_PDF_PAGES = 31
+EXPECTED_PDF_PAGES = 32
 EXPECTED_TABLES_COUNT = 4
 EXPECTED_FIGURES_COUNT = 8
 

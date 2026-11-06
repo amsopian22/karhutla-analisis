@@ -73,12 +73,12 @@ To prevent geographic distortion in western regencies that do not contain ex-PLG
 \end{cases}
 \label{eq:ex_plg}
 \end{equation}
-For hotspots outside the ex-PLG landscape, the operational canal distance feature was assigned a standardized sentinel value of $-1$, whereas points within the ex-PLG zone retained their true Euclidean drainage proximity in meters. This prevents spurious distance measurements to distant canals that exert zero hydrological influence over western peat domes.
+For hotspots outside the ex-PLG landscape where ex-PLG primary canals exert zero hydrological drainage influence, the canal distance feature was assigned an asymptotic background distance ($d_{\text{canal}} = 99,999$\,m, representing physical independence from the PLG canal network). Furthermore, to guarantee uncompromised physical interpretability in explainable AI, TreeSHAP dependence analyses for canal drainage proximity were evaluated specifically across the ex-PLG focal landscape ($n = 16,645$), ensuring that feature attributions reflect authentic continuous drainage gradients without boundary sentinel artifacts.
 
 \subsubsection{Atmospheric Reanalysis and Fire Weather Modeling}
 \label{subsubsec:weather_era5}
 
-Daily atmospheric forcing data were obtained from the European Centre for Medium-Range Weather Forecasts (ECMWF) ERA5-Land atmospheric reanalysis dataset (nominal horizontal grid resolution of $0.1^\circ \approx 9$\,km). Reanalysis variables were compiled across all 14 administrative centroids for a 30-day antecedent window prior to each fire observation. Extracted daily meteorological indicators include:
+Daily atmospheric forcing data were obtained from the European Centre for Medium-Range Weather Forecasts (ECMWF) ERA5-Land atmospheric reanalysis dataset (nominal horizontal grid resolution of $0.1^\circ \approx 9$\,km). In Indonesian wildfire disaster governance, sub-national disaster mitigation agencies (BPBD) and fire suppression brigades (Manggala Agni Daops) operate under district-level command structures, declaring emergency disaster status (\textit{Status Siaga Darurat Karhutla}) and deploying suppression units based on regency-scale synoptic meteorological alerts. Accordingly, reanalysis variables were compiled across all 14 administrative regency centroids for a 30-day antecedent window prior to each fire observation. Extracted daily meteorological indicators include:
 \begin{itemize}
     \item Maximum 2-meter air temperature ($T_{\text{max}}$, $^\circ\text{C}$).
     \item Mean 2-meter relative humidity ($\text{RH}_{\text{mean}}$, \%).
@@ -171,7 +171,7 @@ where $N_k$ is the number of active fire detections in band $k$. The boundary tr
 \tau_{\text{BDD}} = \lim_{\tilde{d} \to 0^+} D(\tilde{d}) - \lim_{\tilde{d} \to 0^-} D(\tilde{d})
 \label{eq:bdd_jump}
 \end{equation}
-Differences in thermal intensity (FRP) and severe fire proportions between interior and exterior zones were evaluated using non-parametric Mann-Whitney $U$ tests and Welch's unequal variances $t$-tests.
+Differences in thermal intensity (FRP) and severe fire proportions between interior and exterior zones were evaluated using non-parametric Mann-Whitney $U$ tests and Welch's unequal variances $t$-tests. To evaluate the robustness of the estimated boundary step jump against bandwidth choice and potential artificial border artifacts, three diagnostic checks were conducted: (1) bandwidth sensitivity analysis across $\pm 1$\,km, $\pm 2$\,km, and $\pm 3$\,km corridors; (2) a placebo boundary test artificially shifting the legal perimeter by $-1,000$\,m into the concession interior to verify the absence of spurious internal discontinuities; and (3) a tenure decomposition comparing oil palm (HGU) versus commercial forestry (PBPH) perimeters.
 
 \subsection{Predictive Machine Learning and Validation Framework}
 \label{subsec:ml_framework}
@@ -201,7 +201,7 @@ where $N = 43,937$, $K = 2$, $n_1 = 6,648$ (severe class), and $n_0 = 37,289$ (r
 \subsubsection{Comparative Architectures: Model A vs. Model B}
 \label{subsubsec:model_architectures}
 
-To empirically test the hypothesis of spatial memorization ($\mathbf{H_1}$ vs. $\mathbf{H_2}$), we formulated two distinct Random Forest classifier pipelines \citep{Breiman2001ML}:
+To empirically test the spatial generalizability hypotheses ($\mathbf{H_{2a}}$ vs. $\mathbf{H_{2b}}$), we formulated two distinct Random Forest classifier pipelines \citep{Breiman2001ML}:
 \begin{itemize}
     \item Model A (Spatial Memorization): 15 predictors (Equation~\eqref{eq:features_a}), including geodetic coordinates and regency identifiers:
     \begin{equation}

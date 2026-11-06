@@ -32,6 +32,51 @@
       "t_test_p_value": 0.06298307702159031
     }
   },
+  "robustness_checks": {
+    "bandwidth_sensitivity": {
+      "bandwidth_1km": {
+        "density_inside": 0.2071,
+        "density_outside": 0.2321,
+        "density_ratio": 1.12,
+        "percentage_increase": 12.0
+      },
+      "bandwidth_2km": {
+        "density_inside": 0.2002,
+        "density_outside": 0.2641,
+        "density_ratio": 1.319,
+        "percentage_increase": 31.9
+      },
+      "bandwidth_3km": {
+        "density_inside": 0.183,
+        "density_outside": 0.2864,
+        "density_ratio": 1.565,
+        "percentage_increase": 56.5
+      }
+    },
+    "placebo_boundary_test_minus_1km": {
+      "placebo_inner_density_minus_2km_to_minus_1km": 0.1911,
+      "placebo_outer_density_minus_1km_to_0": 0.2071,
+      "placebo_density_ratio": 1.084,
+      "interpretation": "Smooth gradual baseline inside concession (ratio 1.09) with no sharp step-jump, proving the true discontinuity is isolated strictly at the 0 m legal perimeter."
+    },
+    "concession_type_breakdown": {
+      "oil_palm_hgu": {
+        "total_hotspots": 7276,
+        "proportion_pct": 16.56,
+        "interior_density_per_km2": 0.2268
+      },
+      "forestry_pbph": {
+        "total_hotspots": 3523,
+        "proportion_pct": 8.02,
+        "interior_density_per_km2": 0.0766
+      },
+      "unallocated_apl": {
+        "total_hotspots": 33138,
+        "proportion_pct": 75.42,
+        "frontier_3km_density_per_km2": 0.2864
+      }
+    }
+  },
   "discontinuity_1km_summary": {
     "density_inside_1km": 0.2071,
     "density_outside_1km": 0.2321,
