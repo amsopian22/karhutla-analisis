@@ -25,52 +25,52 @@ Dokumen ini adalah rencana operasional terstruktur untuk mengeksekusi penyesuaia
 ## 2. Rincian Langkah Eksekusi (Step-by-Step Execution Plan)
 
 ### Tahap 1: Pemutakhiran Cover Letter dan Title Page
-- [ ] **1.1. Pemutakhiran `manuscript/cover_letter.md`**:
+- [x] **1.1. Pemutakhiran `manuscript/cover_letter.md`**:
   - Tujukan ke: *The Editor-in-Chief, Remote Sensing Applications: Society and Environment (RSASE), Elsevier*.
   - Perkuat penekanan pada sintesis **Penginderaan Jauh (Remote Sensing)** $\times$ **Lingkungan Gambut (Environment)** $\times$ **Tata Kelola / Kebijakan (Society)**.
   - Tegaskan 5 temuan kunci: (1) Void tata kelola APL 75,4%; (2) Spatial BDD lonjakan kerapatan +56,5%; (3) Evaluasi memorisasi spasial koordinat vs retensi model biofisik murni; (4) Ambang batas TreeSHAP kanal 3 km dan dry spell 14 hari; (5) Kebijakan penyangga perbatasan 3 km dan restorasi hidrologis.
   - Konfirmasi deklarasi etik, orisinalitas, rute publikasi Subscription ($0 APC), dan repositori data publik.
-- [ ] **1.2. Pemutakhiran `manuscript/title_page.md`**:
+- [x] **1.2. Pemutakhiran `manuscript/title_page.md`**:
   - Perbarui metadata `Target Journal: Remote Sensing Applications: Society and Environment (Elsevier)`.
   - Pastikan rincian afiliasi lengkap: Ahmad Sopian (Independent Researcher) & Rahmi Susanti (Universitas Mulawarman).
 
 ### Tahap 2: Optimalisasi Kata Kunci dan Metadata LaTeX
-- [ ] **2.1. Penyesuaian Kata Kunci pada `manuscript/sections/00_abstract.tex`**:
+- [x] **2.1. Penyesuaian Kata Kunci pada `manuscript/sections/00_abstract.tex`**:
   - Harmonisasi 7 kata kunci spesifik RSASE:  
     `Remote sensing applications; Satellite active fires; Tropical peatlands; Spatial boundary discontinuity; Spatial block cross-validation; Land tenure governance; Fire Radiative Power.`
-- [ ] **2.2. Pemutakhiran Metadata Dokumen di `manuscript/main.tex`**:
+- [x] **2.2. Pemutakhiran Metadata Dokumen di `manuscript/main.tex`**:
   - Perbarui tag `pdfsubject` dan `pdfkeywords` pada paket `hyperref` agar selaras dengan RSASE.
 
 ### Tahap 3: Sinkronisasi Naskah Markdown
-- [ ] **3.1. Pemutakhiran `manuscript/manuscript_draft.md`**:
+- [x] **3.1. Pemutakhiran `manuscript/manuscript_draft.md`**:
   - Ganti header target jurnal ke RSASE dan sinkronkan kata kunci baru.
-- [ ] **3.2. Pemutakhiran `manuscript/manuscript_without_author_details.md`**:
+- [x] **3.2. Pemutakhiran `manuscript/manuscript_without_author_details.md`**:
   - Pastikan teks naskah anonim untuk double-blind review 100% identik dengan naskah utama tanpa detail identitas.
 
 ### Tahap 4: Rekompilasi Dokumen Paket Pengajuan (*Submission Package*)
-- [ ] **4.1. Kompilasi Ulang Dokumen Word (.docx) via Pandoc**:
+- [x] **4.1. Kompilasi Ulang Dokumen Word (.docx) via Pandoc**:
   - `manuscript_main.docx` (Naskah lengkap dengan sitasi CSL/BibTeX dan gambar 300 DPI).
   - `manuscript_without_author_details.docx` (Naskah anonim).
   - `title_page.docx` (Halaman judul dan detail penulis).
   - `cover_letter.docx` & `cover_letter.pdf` (Surat pengantar naskah).
   - `highlights.docx` (Research highlights).
   - `credit_statement.docx` & `declaration_of_interest.docx`.
-- [ ] **4.2. Kompilasi Ulang Naskah PDF via Tectonic**:
+- [x] **4.2. Kompilasi Ulang Naskah PDF via Tectonic**:
   - Kompilasi `manuscript/main.tex` $\rightarrow$ `manuscript/main.pdf` (32 halaman, tipografi Palatino, bebas error badness kritis).
 
 ### Tahap 5: Penyesuaian Unit Tes Harness (*Test Suite*)
-- [ ] **5.1. Pemutakhiran `tests/test_keywords_alignment.py`**:
+- [x] **5.1. Pemutakhiran `tests/test_keywords_alignment.py`**:
   - Sesuaikan daftar kata kunci ekspektasi dengan 7 kata kunci baru RSASE.
-- [ ] **5.2. Pemutakhiran `tests/test_challenger_adversarial_suite.py`**:
+- [x] **5.2. Pemutakhiran `tests/test_challenger_adversarial_suite.py`**:
   - Perbarui string target jurnal yang diaudit.
-- [ ] **5.3. Eksekusi Pengujian Penuh**:
+- [x] **5.3. Eksekusi Pengujian Penuh**:
   - Jalankan `/opt/anaconda3/envs/karhutla_env/bin/pytest tests/ -v` dan pastikan seluruh 41 pengujian berstatus **PASSED (100%)**.
 
 ### Tahap 6: Version Control & Handover
-- [ ] **6.1. Git Commit & Push**:
+- [x] **6.1. Git Commit & Push**:
   - Commit seluruh berkas yang dimutakhirkan dengan pesan terstruktur.
   - Push ke cabang `main` di GitHub ([amsopian22/karhutla-analisis](https://github.com/amsopian22/karhutla-analisis)).
-- [ ] **6.2. Verifikasi Kesiapan Portal Editorial Manager**:
+- [x] **6.2. Verifikasi Kesiapan Portal Editorial Manager**:
   - Berikan panduan navigasi langkah demi langkah untuk pengunggahan berkas di [Editorial Manager RSASE](https://www.editorialmanager.com/rsase/default.aspx).
 
 ---
