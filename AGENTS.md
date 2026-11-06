@@ -103,6 +103,7 @@ karhutla-analisis/
 │   ├── models/
 │   │   └── karhutla_rf_model.joblib         # Model Random Forest, Encoders, & Spatial CV Metrics
 │   └── reports/
+│       ├── mathematical_validation_audit.json # Ringkasan audit presisi matematis 11 persamaan formal
 │       ├── spatial_bdd_summary.json         # Metrik lengkap Spatial BDD & 3 Robustness Checks
 │       ├── model_metrics.json               # Metrik evaluasi model Random Forest & Spatial CV
 │       └── eda_summary.json                 # Metrik statistik ringkasan EDA
@@ -113,11 +114,12 @@ karhutla-analisis/
 │   ├── train_model.py                       # Random Forest, Spatial Block CV (GroupKFold), TreeSHAP
 │   ├── generate_map.py                      # Render peta interaktif Folium
 │   └── transboundary_haze_analysis.py       # Model dispersi aerosol Monsun Barat Daya
-└── tests/                                   # HARNESS PENGUJIAN OTOMATIS (41 UNIT TES)
+└── tests/                                   # HARNESS PENGUJIAN OTOMATIS (53 UNIT TES)
     ├── test_abstract_word_count.py          # Uji kepatuhan panjang abstrak (<= 250 kata)
     ├── test_highlights_length.py            # Uji panjang karakter highlights (<= 85 char)
     ├── test_keywords_alignment.py           # Uji keselarasan kata kunci terhadap RSASE
     ├── test_data_integrity_and_metrics.py   # Uji deterministik data 43.937 titik & BDD +56,5%
+    ├── test_mathematical_formulations.py    # Uji deterministik 11 persamaan formal, statistik & ML
     ├── test_document_compilation_rendering.py # Uji kompilasi Tectonic & integritas DOCX/XML
     ├── test_reference_figure_callout_consistency.py # Uji sitasi BibTeX & urutan gambar/tabel
     └── test_challenger_adversarial_suite.py # Uji stres komprehensif adversarial
@@ -159,7 +161,7 @@ pandoc manuscript/cover_letter.md -o manuscript/submission_package/cover_letter.
 pandoc manuscript/cover_letter.md --pdf-engine=/opt/homebrew/bin/tectonic -o manuscript/submission_package/cover_letter.pdf
 pandoc manuscript/highlights.md -o manuscript/submission_package/highlights.docx
 
-# 8. Jalankan seluruh unit tes (Wajib 41/41 PASSED)
+# 8. Jalankan seluruh unit tes (Wajib 53/53 PASSED)
 pytest tests/ -v
 ```
 
